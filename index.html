@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سلسلة مدار التعليمية</title>
+
+  <title>مدار | منصة مدار التعليمية</title>
 
   <style>
     * {
@@ -11,6 +12,10 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -21,12 +26,12 @@
     header {
       background: linear-gradient(135deg, #173b7a, #2563eb);
       color: white;
-      padding: 25px 20px;
       text-align: center;
+      padding: 35px 20px;
     }
 
     header h1 {
-      font-size: 32px;
+      font-size: 38px;
       margin-bottom: 10px;
     }
 
@@ -36,59 +41,62 @@
 
     nav {
       background: white;
-      padding: 15px;
+      padding: 16px;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
     }
 
     nav a {
-      text-decoration: none;
       color: #173b7a;
-      margin: 0 12px;
+      text-decoration: none;
       font-weight: bold;
+      margin: 0 10px;
     }
 
     .hero {
-      padding: 70px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #eaf1ff, #ffffff);
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #eaf1ff, white);
     }
 
     .hero h2 {
-      font-size: 36px;
       color: #173b7a;
+      font-size: 36px;
       margin-bottom: 15px;
     }
 
     .hero p {
-      font-size: 19px;
       max-width: 700px;
       margin: auto;
-      line-height: 1.8;
+      line-height: 1.9;
+      font-size: 19px;
     }
 
     .button {
       display: inline-block;
       margin-top: 25px;
-      padding: 14px 30px;
       background: #2563eb;
       color: white;
       text-decoration: none;
+      padding: 14px 28px;
       border-radius: 10px;
       font-weight: bold;
     }
 
     .section {
-      padding: 50px 20px;
       max-width: 1100px;
       margin: auto;
+      padding: 55px 20px;
     }
 
-    .section h2 {
+    .section-title {
       text-align: center;
       color: #173b7a;
-      margin-bottom: 30px;
-      font-size: 28px;
+      font-size: 30px;
+      margin-bottom: 35px;
     }
 
     .cards {
@@ -100,9 +108,19 @@
     .card {
       background: white;
       padding: 30px 20px;
-      border-radius: 15px;
+      border-radius: 16px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card .icon {
+      font-size: 45px;
+      margin-bottom: 15px;
     }
 
     .card h3 {
@@ -111,8 +129,18 @@
     }
 
     .card p {
-      line-height: 1.7;
       color: #555;
+      line-height: 1.7;
+    }
+
+    .card button {
+      border: none;
+      background: #173b7a;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      margin-top: 18px;
+      cursor: pointer;
     }
 
     footer {
@@ -120,7 +148,6 @@
       color: white;
       text-align: center;
       padding: 25px;
-      margin-top: 30px;
     }
   </style>
 </head>
@@ -128,22 +155,135 @@
 <body>
 
   <header>
-    <h1>سلسلة مدار التعليمية</h1>
-    <p>منصة تعليمية تهدف إلى تقديم محتوى تعليمي مميز ومبسط</p>
+    <h1>مَدَار</h1>
+    <p>منصة مدار التعليمية</p>
   </header>
 
   <nav>
     <a href="#home">الرئيسية</a>
-    <a href="#courses">المواد الدراسية</a>
+    <a href="#grades">الصفوف</a>
+    <a href="#subjects">المواد</a>
     <a href="#about">عن مدار</a>
-    <a href="#contact">تواصل معنا</a>
   </nav>
 
   <section class="hero" id="home">
-    <h2>أهلًا بك في منصة مدار 🎓</h2>
+    <h2>مرحبًا بك في مدار 🎓</h2>
+
     <p>
-      منصة تعليمية تساعد الطلاب على فهم الدروس بطريقة سهلة،
-      منظمة وممتعة، مع توفير المذكرات والمراجعات التعليمية.
+      منصتك التعليمية لمحتوى دراسي مبسط ومنظم،
+      يساعدك على الفهم والمراجعة والاستعداد للاختبارات.
     </p>
 
-    <a href="#courses" class="button">
+    <a href="#grades" class="button">ابدأ التعلم الآن</a>
+  </section>
+
+
+  <section class="section" id="grades">
+
+    <h2 class="section-title">اختر الصف الدراسي 📚</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🎒</div>
+        <h3>المرحلة الابتدائية</h3>
+        <p>محتوى تعليمي مبسط لطلاب المرحلة الابتدائية.</p>
+        <button onclick="showMessage('المرحلة الابتدائية')">
+          دخول
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>المرحلة الإعدادية</h3>
+        <p>دروس ومذكرات ومراجعات للمرحلة الإعدادية.</p>
+        <button onclick="showMessage('المرحلة الإعدادية')">
+          دخول
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎓</div>
+        <h3>المرحلة الثانوية</h3>
+        <p>محتوى تعليمي متخصص لطلاب المرحلة الثانوية.</p>
+        <button onclick="showMessage('المرحلة الثانوية')">
+          دخول
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="subjects">
+
+    <h2 class="section-title">المواد الدراسية 📚</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>الدراسات الاجتماعية</h3>
+        <p>جغرافيا وتاريخ بطريقة سهلة ومبسطة.</p>
+        <button onclick="showMessage('الدراسات الاجتماعية')">
+          استكشف
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🗺️</div>
+        <h3>الجغرافيا</h3>
+        <p>خرائط ومعلومات جغرافية ومراجعات.</p>
+        <button onclick="showMessage('الجغرافيا')">
+          استكشف
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏛️</div>
+        <h3>التاريخ</h3>
+        <p>دروس التاريخ بأسلوب مبسط ومنظم.</p>
+        <button onclick="showMessage('التاريخ')">
+          استكشف
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="about">
+
+    <h2 class="section-title">عن مدار 💙</h2>
+
+    <div class="card">
+
+      <p>
+        مدار منصة تعليمية تهدف إلى تقديم محتوى تعليمي
+        واضح ومنظم يساعد الطلاب على التعلم والمراجعة
+        وتحقيق أفضل النتائج.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 مدار - منصة مدار التعليمية
+  </footer>
+
+
+  <script>
+
+    function showMessage(name) {
+      alert(
+        "أهلًا بك في " + name +
+        "\\n\\nسيتم إضافة المحتوى والخدمات التعليمية قريبًا."
+      );
+    }
+
+  </script>
+
+</body>
+</html>
