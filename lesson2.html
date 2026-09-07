@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>مظاهر سطح قارة إفريقيا | منصة مدار</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f4f7fb;
+    color:#172033;
+    line-height:1.9;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+header{
+    background:#092b52;
+    color:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 3px 15px #0002;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:900;
+}
+
+.logo span{
+    color:#36c9b5;
+}
+
+.nav-links{
+    display:flex;
+    gap:22px;
+    font-size:14px;
+}
+
+.nav-links a:hover{
+    color:#36c9b5;
+}
+
+
+/* HERO */
+
+.hero{
+    background:linear-gradient(135deg,#092b52,#145b8c);
+    color:white;
+    padding:55px 20px;
+}
+
+.hero-inner{
+    max-width:1200px;
+    margin:auto;
+}
+
+.badge{
+    display:inline-block;
+    background:#ffffff18;
+    border:1px solid #ffffff35;
+    padding:7px 14px;
+    border-radius:30px;
+    margin-bottom:15px;
+    font-size:13px;
+}
+
+.hero h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    max-width:800px;
+    color:#e6f2ff;
+}
+
+.progress{
+    margin-top:25px;
+    max-width:550px;
+}
+
+.progress-text{
+    font-size:13px;
+    margin-bottom:7px;
+}
+
+.progress-bar{
+    height:8px;
+    background:#ffffff25;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar div{
+    width:35%;
+    height:100%;
+    background:#36c9b5;
+}
+
+
+/* LAYOUT */
+
+.layout{
+    max-width:1200px;
+    margin:30px auto;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:260px 1fr;
+    gap:25px;
+}
+
+.sidebar{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    height:max-content;
+    position:sticky;
+    top:90px;
+    box-shadow:0 5px 20px #0000000a;
+}
+
+.sidebar h3{
+    color:#092b52;
+    margin-bottom:15px;
+}
+
+.sidebar a{
+    display:block;
+    padding:9px 10px;
+    border-radius:9px;
+    margin:4px 0;
+    font-size:14px;
+}
+
+.sidebar a:hover{
+    background:#e9f8f6;
+    color:#087f72;
+}
+
+.content{
+    min-width:0;
+}
+
+
+/* CARDS */
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:28px;
+    margin-bottom:22px;
+    box-shadow:0 5px 22px #00000009;
+}
+
+.card h2{
+    color:#092b52;
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#145b8c;
+    margin:20px 0 8px;
+}
+
+.card ul{
+    padding-right:25px;
+}
+
+.highlight{
+    background:#eaf8f6;
+    border-right:5px solid #36b9aa;
+    padding:15px 18px;
+    border-radius:12px;
+    margin:18px 0;
+}
+
+
+/* FACTS */
+
+.fact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.fact{
+    background:#f6f9fc;
+    border:1px solid #e4ebf2;
+    padding:18px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.fact strong{
+    display:block;
+    font-size:20px;
+    color:#092b52;
+    margin-bottom:5px;
+}
+
+
+/* MAP */
+
+.map-box{
+    margin:25px 0;
+    background:#f7f9fc;
+    border:2px dashed #cbd8e5;
+    border-radius:18px;
+    padding:18px;
+    text-align:center;
+}
+
+.map-placeholder{
+    min-height:280px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#738196;
+    background:#eef3f8;
+    border-radius:14px;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.map-caption{
+    font-size:13px;
+    color:#68778a;
+    margin-top:10px;
+}
+
+
+/* QUESTION */
+
+.question{
+    background:#f8fafc;
+    border:1px solid #e3eaf1;
+    border-radius:15px;
+    padding:18px;
+    margin:18px 0;
+}
+
+.question-title{
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.options{
+    display:grid;
+    gap:8px;
+}
+
+.option{
+    border:1px solid #d8e1ea;
+    background:white;
+    padding:10px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    background:#eef8f7;
+}
+
+.answer{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    background:#eaf8f6;
+    border-radius:9px;
+    color:#075e55;
+}
+
+.show-answer{
+    background:#092b52;
+    color:white;
+    padding:9px 15px;
+    border-radius:9px;
+    margin-top:10px;
+}
+
+
+/* COMPARISON */
+
+.compare{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+    overflow:hidden;
+    border-radius:12px;
+}
+
+.compare th,
+.compare td{
+    border:1px solid #dce4ec;
+    padding:12px;
+    text-align:right;
+}
+
+.compare th{
+    background:#092b52;
+    color:white;
+}
+
+.compare tr:nth-child(even){
+    background:#f7f9fc;
+}
+
+
+/* TIMELINE */
+
+.timeline{
+    border-right:3px solid #36b9b0;
+    padding-right:20px;
+    margin-top:20px;
+}
+
+.timeline-item{
+    position:relative;
+    margin-bottom:28px;
+}
+
+.timeline-item:before{
+    content:"";
+    position:absolute;
+    right:-29px;
+    top:8px;
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#36b9b0;
+    border:3px solid white;
+    box-shadow:0 0 0 2px #36b9b055;
+}
+
+.timeline-item h3{
+    margin-top:0;
+}
+
+
+/* BLUE ECONOMY */
+
+.blue-card{
+    background:linear-gradient(135deg,#e9f8ff,#eefcf9);
+    border:1px solid #cce9ed;
+    border-radius:18px;
+    padding:22px;
+    margin-top:20px;
+}
+
+.blue-card h3{
+    color:#08617d;
+    margin-top:0;
+}
+
+
+/* QUIZ */
+
+.quiz{
+    background:linear-gradient(135deg,#092b52,#124c76);
+    color:white;
+}
+
+.quiz h2{
+    color:white;
+}
+
+.quiz-question{
+    background:#ffffff10;
+    border:1px solid #ffffff20;
+    padding:18px;
+    border-radius:15px;
+    margin:15px 0;
+}
+
+.quiz .option{
+    background:#ffffff0d;
+    color:white;
+    border-color:#ffffff25;
+}
+
+.quiz .option:hover{
+    background:#ffffff1c;
+}
+
+#score{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    background:#ffffff15;
+    border-radius:12px;
+    text-align:center;
+    font-size:20px;
+}
+
+
+/* NAVIGATION */
+
+.navigation{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin:25px 0;
+}
+
+.nav-btn{
+    padding:13px 20px;
+    border-radius:12px;
+    background:#092b52;
+    color:white;
+}
+
+.nav-btn.next{
+    background:#36b9aa;
+}
+
+
+/* FOOTER */
+
+footer{
+    background:#071e38;
+    color:#cbd7e5;
+    text-align:center;
+    padding:30px 20px;
+    margin-top:40px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .layout{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        position:static;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .fact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .map-placeholder{
+        min-height:220px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="nav">
+
+<div class="logo">
+مَ<span>د</span>ار
+</div>
+
+<nav class="nav-links">
+
+<a href="index.html">الرئيسية</a>
+
+<a href="social.html">
+الدراسات الاجتماعية
+</a>
+
+<a href="prep1.html">
+أولى إعدادي
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-inner">
+
+<span class="badge">
+الدراسات الاجتماعية • الصف الأول الإعدادي
+</span>
+
+<h1>
+مظاهر سطح قارة إفريقيا
+</h1>
+
+<p>
+نتعرف في هذا الدرس على تنوع مظاهر سطح القارة،
+من الهضاب والجبال إلى السهول والجزر،
+وأهميتها في حياة الإنسان والأنشطة الاقتصادية.
+</p>
+
+<div class="progress">
+
+<div class="progress-text">
+تقدمك في الدرس
+</div>
+
+<div class="progress-bar">
+
+<div></div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<div class="layout">
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<h3>
+محتويات الدرس
+</h3>
+
+<a href="#objectives">
+🎯 أهداف الدرس
+</a>
+
+<a href="#intro">
+🌍 تمهيد
+</a>
+
+<a href="#plateaus">
+⛰️ الهضاب
+</a>
+
+<a href="#mountains">
+🏔️ الجبال
+</a>
+
+<a href="#plains">
+🌾 السهول
+</a>
+
+<a href="#islands">
+🏝️ الجزر
+</a>
+
+<a href="#blue">
+🌊 الاقتصاد الأزرق
+</a>
+
+<a href="#activities">
+✏️ تدريبات
+</a>
+
+<a href="#quiz">
+🏆 اختبار الدرس
+</a>
+
+</aside>
+
+
+
+<!-- CONTENT -->
+
+<main class="content">
+
+
+
+<!-- OBJECTIVES -->
+
+<section class="card" id="objectives">
+
+<h2>
+🎯 أهداف الدرس
+</h2>
+
+<p>
+بعد دراسة هذا الدرس، يُتوقع أن تكون قادرًا على:
+</p>
+
+<ul>
+
+<li>
+تحديد أهم مظاهر السطح في قارة إفريقيا.
+</li>
+
+<li>
+التعرف على أهم الهضاب والجبال والسهول في القارة.
+</li>
+
+<li>
+تمييز أنواع الجبال في إفريقيا.
+</li>
+
+<li>
+تحديد بعض مظاهر السطح على الخريطة.
+</li>
+
+<li>
+تفسير الأهمية الاقتصادية لبعض مظاهر السطح.
+</li>
+
+<li>
+استنتاج العلاقة بين التضاريس والأنشطة الاقتصادية.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<!-- INTRO -->
+
+<section class="card" id="intro">
+
+<h2>
+🌍 تمهيد
+</h2>
+
+<p>
+تتميز قارة إفريقيا بتنوع كبير في مظاهر سطحها، فعلى الرغم من اتساع مساحة الهضاب، فإن القارة تضم أيضًا سلاسل جبلية وسهولًا ساحلية وفيضية، بالإضافة إلى عدد من الجزر.
+</p>
+
+<div class="highlight">
+
+<strong>
+فكر:
+</strong>
+
+هل يمكن أن يؤثر شكل سطح الأرض في حياة الإنسان وأنشطته الاقتصادية؟
+
+</div>
+
+<p>
+بالطبع، فالتضاريس تؤثر في توزيع السكان والزراعة والنقل والتعدين والسياحة وغيرها من الأنشطة.
+</p>
+
+</section>
+
+
+
+<!-- PLATEAUS -->
+
+<section class="card" id="plateaus">
+
+<h2>
+⛰️ أولًا: الهضاب في قارة إفريقيا
+</h2>
+
+<p>
+تغطي الهضاب مساحات واسعة من قارة إفريقيا، ولذلك يطلق على إفريقيا أحيانًا اسم «قارة الهضاب».
+</p>
+
+
+<h3>
+1️⃣ الهضبة الشمالية
+</h3>
+
+<p>
+تمتد الهضبة الشمالية في مساحة واسعة من شمال القارة، وتشمل معظم نطاق الصحراء الكبرى، وتظهر بها بعض الجبال والمنخفضات والواحات.
+</p>
+
+<div class="fact-grid">
+
+<div class="fact">
+
+<strong>
+جبل العوينات
+</strong>
+
+من مظاهر السطح في نطاق شمال إفريقيا.
+
+</div>
+
+<div class="fact">
+
+<strong>
+منخفض القطارة
+</strong>
+
+منخفض جغرافي في مصر.
+
+</div>
+
+<div class="fact">
+
+<strong>
+واحة سيوة
+</strong>
+
+من أشهر واحات مصر.
+
+</div>
+
+</div>
+
+
+<h3>
+2️⃣ هضبة الحبشة
+</h3>
+
+<p>
+تقع في شرق إفريقيا، وتتميز بارتفاعها وطبيعتها الجبلية، كما تعد منطقة مهمة لمصادر مياه نهر النيل، ومن أهمها النيل الأزرق.
+</p>
+
+<div class="highlight">
+
+<strong>
+معلومة مهمة:
+</strong>
+
+تؤدي المرتفعات في هضبة الحبشة دورًا مهمًا في تغذية نهر النيل بالمياه، خاصة خلال موسم الفيضان.
+</div>
+
+
+<h3>
+3️⃣ هضبة البحيرات الاستوائية
+</h3>
+
+<p>
+تقع في منطقة شرق ووسط إفريقيا، وتنتشر بها مجموعة من البحيرات العذبة، ومن أشهرها بحيرة فيكتوريا.
+</p>
+
+
+<h3>
+4️⃣ الأخدود الإفريقي العظيم
+</h3>
+
+<p>
+يمتد الأخدود الإفريقي العظيم في شرق القارة، وهو من أبرز الظواهر التضاريسية في إفريقيا، وترتبط به مجموعة من البحيرات والمرتفعات والظواهر الجيولوجية.
+</p>
+
+
+<div class="map-box">
+
+<div class="map-placeholder">
+
+🗺️
+مكان الخريطة الطبيعية لقارة إفريقيا
+
+</div>
+
+<div class="map-caption">
+
+الخريطة الطبيعية للدرس — سيتم وضع خريطة المنهج هنا لاحقًا.
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ أكمل:
+
+تقع هضبة الحبشة في الجزء ............... من قارة إفريقيا.
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('p1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="p1">
+
+الشرقي.
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ بم تفسر أهمية هضبة الحبشة لمصر؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('p2')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="p2">
+
+لأنها تضم منابع مهمة للنيل الأزرق، وتسهم مياهها في تغذية نهر النيل.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- MOUNTAINS -->
+
+<section class="card" id="mountains">
+
+<h2>
+🏔️ ثانيًا: الجبال في قارة إفريقيا
+</h2>
+
+<p>
+تتنوع الجبال في إفريقيا من حيث نشأتها، ومن أهم أنواعها الجبال الالتوائية والانكسارية والبركانية.
+</p>
+
+
+<table class="compare">
+
+<tr>
+
+<th>
+نوع الجبال
+</th>
+
+<th>
+مثال
+</th>
+
+<th>
+أهمية
+</th>
+
+</tr>
+
+<tr>
+
+<td>
+الجبال الالتوائية
+</td>
+
+<td>
+جبال أطلس
+</td>
+
+<td>
+تؤثر في المناخ والزراعة والسياحة.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+الجبال الانكسارية
+</td>
+
+<td>
+جبال البحر الأحمر
+
+</td>
+
+<td>
+ترتبط بالثروات المعدنية وبعض الأنشطة الاقتصادية.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+الجبال البركانية
+</td>
+
+<td>
+جبل كليمنجارو
+
+</td>
+
+<td>
+تسهم في النشاط السياحي وتتميز بمناظر طبيعية مميزة.
+
+</td>
+
+</tr>
+
+</table>
+
+
+<h3>
+🏔️ جبل كليمنجارو
+</h3>
+
+<p>
+يقع جبل كليمنجارو في شرق إفريقيا، وهو من أشهر الجبال البركانية في القارة، ويتميز بارتفاعه الكبير ووجود الثلوج على قمته في بعض الظروف المناخية.
+</p>
+
+
+<h3>
+🏔️ جبال البحر الأحمر
+</h3>
+
+<p>
+تمتد جبال البحر الأحمر بمحاذاة ساحل البحر الأحمر، وتتميز بطبيعتها الانكسارية، وتوجد بها موارد معدنية مهمة.
+</p>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ بم تفسر تنوع الجبال في قارة إفريقيا؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('m1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="m1">
+
+بسبب تنوع العوامل والعمليات الجيولوجية التي أسهمت في تكوين سطح القارة.
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ دلل على صحة العبارة:
+
+«للجبال الإفريقية أهمية اقتصادية».
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('m2')">
+
+إظهار نموذج إجابة
+
+</button>
+
+<div class="answer" id="m2">
+
+تسهم الجبال في توفير بعض الموارد المعدنية، كما ترتبط بالسياحة والزراعة في بعض المناطق.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PLAINS -->
+
+<section class="card" id="plains">
+
+<h2>
+🌾 ثالثًا: السهول في قارة إفريقيا
+</h2>
+
+<p>
+تنقسم السهول في إفريقيا إلى سهول فيضية وسهول ساحلية، ولكل نوع أهمية في حياة السكان والاقتصاد.
+</p>
+
+
+<h3>
+1️⃣ السهول الفيضية
+</h3>
+
+<p>
+تتكون السهول الفيضية على جانبي الأنهار نتيجة تراكم الرواسب والطمي الذي تحمله مياه الأنهار.
+</p>
+
+<div class="fact-grid">
+
+<div class="fact">
+
+<strong>
+وادي النيل
+</strong>
+
+من أهم السهول الفيضية في إفريقيا.
+
+</div>
+
+<div class="fact">
+
+<strong>
+دلتا النيل
+</strong>
+
+من أشهر المناطق الزراعية في مصر.
+
+</div>
+
+<div class="fact">
+
+<strong>
+نهر النيجر
+</strong>
+
+يرتبط بسهل فيضي مهم في غرب إفريقيا.
+
+</div>
+
+</div>
+
+
+<h3>
+2️⃣ السهول الساحلية
+</h3>
+
+<p>
+تمتد السهول الساحلية بمحاذاة البحار والمحيطات، وتختلف في اتساعها من منطقة لأخرى.
+</p>
+
+<p>
+ومن أمثلتها سهول البحر المتوسط وسهول البحر الأحمر.
+</p>
+
+
+<div class="highlight">
+
+<strong>
+أهمية السهول:
+</strong>
+
+تساعد السهول الفيضية على الزراعة بسبب خصوبة التربة، بينما ترتبط بعض السهول الساحلية بالموانئ والصيد والموارد البحرية والنشاط التجاري.
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ ما الفرق بين السهول الفيضية والسهول الساحلية؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('s1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="s1">
+
+السهول الفيضية تتكون حول الأنهار نتيجة تراكم الرواسب والطمي، بينما تمتد السهول الساحلية بمحاذاة البحار والمحيطات.
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ بم تفسر أهمية السهول الفيضية للزراعة؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('s2')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="s2">
+
+بسبب تراكم الطمي والرواسب التي تساعد على زيادة خصوبة التربة.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ISLANDS -->
+
+<section class="card" id="islands">
+
+<h2>
+🏝️ رابعًا: الجزر في قارة إفريقيا
+</h2>
+
+<p>
+تضم إفريقيا عددًا من الجزر المنتشرة في البحار والمحيطات المحيطة بها.
+</p>
+
+<div class="highlight">
+
+<strong>
+أكبر جزر إفريقيا:
+</strong>
+
+جزيرة مدغشقر، وتقع في المحيط الهندي إلى الشرق من قارة إفريقيا.
+
+</div>
+
+<p>
+وتتميز الجزر بتنوع مواردها الطبيعية وإمكاناتها السياحية والبحرية.
+</p>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ ما أكبر جزر قارة إفريقيا؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('i1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="i1">
+
+جزيرة مدغشقر.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- BLUE ECONOMY -->
+
+<section class="card" id="blue">
+
+<h2>
+🌊 خامسًا: التضاريس والاقتصاد الأزرق
+</h2>
+
+<p>
+ترتبط بعض مظاهر سطح إفريقيا بالموارد البحرية والساحلية، وهو ما يقود إلى مفهوم الاقتصاد الأزرق.
+</p>
+
+<div class="blue-card">
+
+<h3>
+🌊 ما المقصود بالاقتصاد الأزرق؟
+</h3>
+
+<p>
+هو الاستفادة من الموارد والأنشطة المرتبطة بالبحار والمحيطات والمياه بصورة مستدامة، بما يدعم التنمية ويحافظ على الموارد للأجيال القادمة.
+</p>
+
+</div>
+
+
+<h3>
+ومن أمثلته:</h3>
+
+<ul>
+
+<li>
+الصيد البحري.
+</li>
+
+<li>
+النقل والموانئ.
+</li>
+
+<li>
+السياحة الساحلية.
+</li>
+
+<li>
+الاستفادة من الموارد البحرية.
+</li>
+
+</ul>
+
+
+<div class="question">
+
+<div class="question-title">
+
+❓ لماذا يجب استخدام الموارد البحرية بصورة مستدامة؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('b1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="b1">
+
+للحفاظ على الموارد وعدم استنزافها وضمان استمرار الاستفادة منها في المستقبل.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ACTIVITIES -->
+
+<section class="card" id="activities">
+
+<h2>
+✏️ تدريبات وأنشطة الدرس
+</h2>
+
+
+<div class="question">
+
+<div class="question-title">
+
+1️⃣ اختر الإجابة الصحيحة:
+
+أكبر جزر قارة إفريقيا هي:
+
+</div>
+
+<div class="options">
+
+<div class="option"
+onclick="check(this,false)">
+
+أ) جزر القمر
+
+</div>
+
+<div class="option"
+onclick="check(this,true)">
+
+ب) مدغشقر
+
+</div>
+
+<div class="option"
+onclick="check(this,false)">
+
+ج) زنجبار
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+2️⃣ صح أم خطأ:
+
+تعد إفريقيا قارة الهضاب بسبب اتساع مساحة الهضاب بها.
+
+</div>
+
+<div class="options">
+
+<div class="option"
+onclick="check(this,true)">
+
+✓ صح
+
+</div>
+
+<div class="option"
+onclick="check(this,false)">
+
+✗ خطأ
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+3️⃣ أكمل:
+
+من أمثلة الجبال البركانية في إفريقيا جبل ................
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('a1')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="a1">
+
+كليمنجارو.
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+4️⃣ بم تفسر:
+
+خصوبة بعض السهول الفيضية؟
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('a2')">
+
+إظهار الإجابة
+
+</button>
+
+<div class="answer" id="a2">
+
+بسبب تراكم الطمي والرواسب التي تحملها مياه الأنهار.
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+5️⃣ دلل على صحة العبارة:
+
+«تتنوع مظاهر سطح قارة إفريقيا».
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('a3')">
+
+إظهار نموذج إجابة
+
+</button>
+
+<div class="answer" id="a3">
+
+توجد بها الهضاب والجبال والسهول والجزر، كما تتنوع الجبال إلى التوائية وانكسارية وبركانية.
+
+</div>
+
+</div>
+
+
+
+<div class="question">
+
+<div class="question-title">
+
+6️⃣ قارن بين الجبال الالتوائية والانكسارية والبركانية.
+
+</div>
+
+<button class="show-answer"
+onclick="toggleAnswer('a4')">
+
+إظهار نموذج إجابة
+
+</button>
+
+<div class="answer" id="a4">
+
+الجبال الالتوائية: من أمثلتها جبال أطلس، والانكسارية: من أمثلتها جبال البحر الأحمر، والبركانية: من أمثلتها جبل كليمنجارو.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- FINAL QUIZ -->
+
+<section class="card quiz" id="quiz">
+
+<h2>
+🏆 اختبار نهاية الدرس
+</h2>
+
+<p>
+اختبر نفسك في أهم أفكار الدرس.
+</p>
+
+
+<div class="quiz-question">
+
+<strong>
+1. أي مما يلي يمثل إحدى الهضاب المهمة في شرق إفريقيا؟
+</strong>
+
+<div class="option"
+onclick="answerQuiz(1,this,true)">
+
+هضبة الحبشة
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(1,this,false)">
+
+هضبة شمال أوروبا
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(1,this,false)">
+
+هضبة الأناضول
+
+</div>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<strong>
+2. من أمثلة الجبال الالتوائية في إفريقيا:
+</strong>
+
+<div class="option"
+onclick="answerQuiz(2,this,true)">
+
+جبال أطلس
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(2,this,false)">
+
+جبال البحر الأحمر
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(2,this,false)">
+
+جبل كليمنجارو
+
+</div>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<strong>
+3. من أمثلة الجبال البركانية:
+</strong>
+
+<div class="option"
+onclick="answerQuiz(3,this,true)">
+
+جبل كليمنجارو
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(3,this,false)">
+
+جبال أطلس
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(3,this,false)">
+
+جبال البحر الأحمر
+
+</div>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<strong>
+4. تتكون السهول الفيضية بصورة أساسية نتيجة:
+</strong>
+
+<div class="option"
+onclick="answerQuiz(4,this,true)">
+
+تراكم الطمي والرواسب
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(4,this,false)">
+
+النشاط البركاني فقط
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(4,this,false)">
+
+حركة الجليد
+
+</div>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<strong>
+5. أكبر جزر إفريقيا هي:
+</strong>
+
+<div class="option"
+onclick="answerQuiz(5,this,true)">
+
+مدغشقر
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(5,this,false)">
+
+زنجبار
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(5,this,false)">
+
+جزر القمر
+
+</div>
+
+</div>
+
+
+
+<div class="quiz-question">
+
+<strong>
+6. يرتبط الاقتصاد الأزرق بصورة أساسية بـ:
+</strong>
+
+<div class="option"
+onclick="answerQuiz(6,this,true)">
+
+الموارد والأنشطة البحرية والمائية
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(6,this,false)">
+
+التعدين فقط
+
+</div>
+
+<div class="option"
+onclick="answerQuiz(6,this,false)">
+
+الزراعة فقط
+
+</div>
+
+</div>
+
+
+
+<button class="show-answer"
+onclick="calculateScore()">
+
+احسب النتيجة
+
+</button>
+
+
+<div id="score"></div>
+
+</section>
+
+
+
+<!-- NAVIGATION -->
+
+<div class="navigation">
+
+<a class="nav-btn"
+href="lesson1.html">
+
+← الدرس السابق
+
+</a>
+
+<a class="nav-btn next"
+href="lesson3.html">
+
+الدرس التالي →
+
+</a>
+
+</div>
+
+
+</main>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<strong>
+منصة مَدَار التعليمية
+</strong>
+
+<p>
+إعداد وتقديم: الأستاذ عمر أحمد
+</p>
+
+<p>
+تعلم • افهم • طبّق • تفوق
+</p>
+
+</footer>
+
+
+
+<script>
+
+
+function toggleAnswer(id){
+
+const box=document.getElementById(id);
+
+if(box.style.display==="block"){
+
+box.style.display="none";
+
+}else{
+
+box.style.display="block";
+
+}
+
+}
+
+
+
+function check(el,correct){
+
+if(correct){
+
+el.style.background="#dff7ef";
+
+el.style.borderColor="#2aa88f";
+
+el.innerHTML="✓ إجابة صحيحة";
+
+}else{
+
+el.style.background="#ffe8e8";
+
+el.style.borderColor="#d95353";
+
+el.innerHTML="✗ إجابة غير صحيحة";
+
+}
+
+}
+
+
+
+let answers={};
+
+
+
+function answerQuiz(number,el,correct){
+
+answers[number]=correct;
+
+const parent=el.parentElement;
+
+parent.querySelectorAll(".option").forEach(x=>{
+
+x.style.background="";
+
+x.style.borderColor="";
+
+});
+
+if(correct){
+
+el.style.background="#2aa88f";
+
+}else{
+
+el.style.background="#b94a48";
+
+}
+
+}
+
+
+
+function calculateScore(){
+
+let score=0;
+
+for(let i=1;i<=6;i++){
+
+if(answers[i]===true){
+
+score++;
+
+}
+
+}
+
+const result=document.getElementById("score");
+
+result.style.display="block";
+
+result.innerHTML=
+
+"نتيجتك: <strong>"+score+" / 6</strong><br>"+
+
+(
+
+score===6
+
+?
+
+"🌟 ممتاز جدًا! أنت متقن للدرس."
+
+:
+
+score>=4
+
+?
+
+"👏 جيد جدًا! راجع بعض النقاط البسيطة."
+
+:
+
+"📚 تحتاج إلى مراجعة الدرس مرة أخرى."
+
+);
+
+}
+
+
+</script>
+
+</body>
+  </html>
