@@ -1,297 +1,1410 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>مدار | منصة مدار التعليمية</title>
+<title>مَدَار | منصة مدار التعليمية</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+html{
+  scroll-behavior:smooth;
+}
 
-    body {
-      background: #f5f7fb;
-      color: #222;
-    }
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f5f8fc;
+  color:#102a43;
+  line-height:1.8;
+}
 
-    header {
-      background: linear-gradient(135deg, #173b7a, #2563eb);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-    }
+a{
+  text-decoration:none;
+}
 
-    header h1 {
-      font-size: 38px;
-      margin-bottom: 10px;
-    }
+button{
+  font-family:inherit;
+}
 
-    header p {
-      font-size: 18px;
-    }
+/* ================= HEADER ================= */
 
-    nav {
-      background: white;
-      padding: 16px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0,0,0,.08);
-    }
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:78px;
+  background:rgba(7,39,70,.97);
+  backdrop-filter:blur(12px);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 6%;
+  box-shadow:0 5px 25px rgba(0,0,0,.13);
+}
 
-    nav a {
-      color: #173b7a;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 0 10px;
-    }
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
 
-    .hero {
-      text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #eaf1ff, white);
-    }
+.logo-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#19b8b5,#08779c);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:25px;
+  font-weight:bold;
+  box-shadow:0 7px 18px rgba(0,0,0,.2);
+}
 
-    .hero h2 {
-      color: #173b7a;
-      font-size: 36px;
-      margin-bottom: 15px;
-    }
+.logo h1{
+  font-size:24px;
+  line-height:1;
+}
 
-    .hero p {
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.9;
-      font-size: 19px;
-    }
+.logo span{
+  font-size:10px;
+  color:#bde8eb;
+}
 
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
+.desktop-nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
 
-    .section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 55px 20px;
-    }
+.desktop-nav a{
+  color:white;
+  font-size:14px;
+  transition:.25s;
+}
 
-    .section-title {
-      text-align: center;
-      color: #173b7a;
-      font-size: 30px;
-      margin-bottom: 35px;
-    }
+.desktop-nav a:hover{
+  color:#52d8d2;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+.start-btn{
+  background:#f2bd43;
+  color:#092f55!important;
+  padding:9px 19px;
+  border-radius:25px;
+  font-weight:bold;
+}
 
-    .card {
-      background: white;
-      padding: 30px 20px;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-      transition: .3s;
-    }
+/* search */
 
-    .card:hover {
-      transform: translateY(-6px);
-    }
+.search-box{
+  display:flex;
+  align-items:center;
+  background:white;
+  border-radius:25px;
+  padding:3px 6px 3px 12px;
+  width:200px;
+}
 
-    .card .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
-    }
+.search-box input{
+  border:0;
+  outline:0;
+  width:100%;
+  font-family:inherit;
+  font-size:12px;
+  color:#333;
+  direction:rtl;
+}
 
-    .card h3 {
-      color: #2563eb;
-      margin-bottom: 12px;
-    }
+.search-box button{
+  border:0;
+  background:#0b999c;
+  color:white;
+  width:33px;
+  height:33px;
+  border-radius:50%;
+  cursor:pointer;
+}
 
-    .card p {
-      color: #555;
-      line-height: 1.7;
-    }
+/* menu button */
 
-    .card button {
-      border: none;
-      background: #173b7a;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      margin-top: 18px;
-      cursor: pointer;
-    }
+.menu-btn{
+  border:0;
+  background:#ffffff12;
+  color:white;
+  width:43px;
+  height:43px;
+  border-radius:12px;
+  font-size:23px;
+  cursor:pointer;
+  transition:.25s;
+}
 
-    footer {
-      background: #173b7a;
-      color: white;
-      text-align: center;
-      padding: 25px;
-    }
-  </style>
+.menu-btn:hover{
+  background:#0b999c;
+}
+
+/* ================= SIDE MENU ================= */
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:1998;
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+}
+
+.overlay.active{
+  opacity:1;
+  visibility:visible;
+}
+
+.side-menu{
+  position:fixed;
+  top:0;
+  right:-360px;
+  width:350px;
+  max-width:90%;
+  height:100vh;
+  background:white;
+  z-index:1999;
+  padding:25px;
+  box-shadow:-10px 0 40px rgba(0,0,0,.18);
+  transition:.35s;
+  overflow-y:auto;
+}
+
+.side-menu.active{
+  right:0;
+}
+
+.menu-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding-bottom:20px;
+  border-bottom:1px solid #e6edf2;
+  margin-bottom:18px;
+}
+
+.menu-brand{
+  color:#082f55;
+  font-size:23px;
+  font-weight:bold;
+}
+
+.close-menu{
+  border:0;
+  background:#edf5f7;
+  color:#082f55;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.menu-search{
+  display:flex;
+  border:1px solid #dce6ec;
+  border-radius:13px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+
+.menu-search input{
+  flex:1;
+  border:0;
+  outline:0;
+  padding:11px;
+  font-family:inherit;
+}
+
+.menu-search button{
+  border:0;
+  background:#0b999c;
+  color:white;
+  width:45px;
+}
+
+.menu-title{
+  font-size:12px;
+  color:#8a9aaa;
+  margin:18px 5px 8px;
+}
+
+.menu-link{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px 13px;
+  color:#243b53;
+  border-radius:12px;
+  margin:3px 0;
+  font-size:14px;
+  transition:.2s;
+}
+
+.menu-link:hover{
+  background:#eaf8f8;
+  color:#07888c;
+  transform:translateX(-3px);
+}
+
+.menu-icon{
+  font-size:20px;
+  width:28px;
+  text-align:center;
+}
+
+.menu-highlight{
+  background:#082f55;
+  color:white!important;
+}
+
+.menu-highlight:hover{
+  background:#0b999c;
+  color:white!important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:610px;
+  padding:70px 7%;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:50px;
+  align-items:center;
+  background:
+    radial-gradient(circle at 85% 20%,rgba(11,153,156,.13),transparent 30%),
+    linear-gradient(135deg,#edf9fb,#fff);
+  overflow:hidden;
+}
+
+.badge{
+  display:inline-block;
+  background:#dcf6f5;
+  color:#087f8c;
+  padding:7px 17px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:17px;
+}
+
+.hero h2{
+  color:#082f55;
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.15;
+  margin-bottom:20px;
+}
+
+.hero h2 span{
+  color:#0b999c;
+}
+
+.hero p{
+  color:#617588;
+  font-size:17px;
+  max-width:590px;
+  margin-bottom:28px;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  padding:13px 25px;
+  border-radius:30px;
+  font-weight:bold;
+  transition:.25s;
+}
+
+.primary-btn{
+  background:#0b999c;
+  color:white;
+  box-shadow:0 10px 25px rgba(11,153,156,.25);
+}
+
+.primary-btn:hover{
+  transform:translateY(-3px);
+}
+
+.secondary-btn{
+  color:#087f8c;
+  background:white;
+  border:2px solid #0b999c;
+}
+
+/* hero visual */
+
+.hero-visual{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.student-card{
+  width:min(480px,100%);
+  height:410px;
+  border-radius:38px;
+  background:
+    radial-gradient(circle at 70% 20%,#24bbb8,transparent 25%),
+    linear-gradient(145deg,#082f55,#087f8c);
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 25px 60px rgba(8,47,85,.24);
+}
+
+.student-placeholder{
+  text-align:center;
+  color:white;
+  padding:30px;
+}
+
+.student-placeholder .emoji{
+  font-size:100px;
+}
+
+.student-placeholder h3{
+  font-size:27px;
+  margin-top:5px;
+}
+
+.student-placeholder p{
+  color:#d9f7f7;
+  font-size:14px;
+}
+
+.floating{
+  position:absolute;
+  background:white;
+  color:#082f55;
+  padding:10px 15px;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.16);
+  font-weight:bold;
+  font-size:13px;
+}
+
+.floating.one{
+  top:28px;
+  right:18px;
+}
+
+.floating.two{
+  bottom:30px;
+  left:20px;
+}
+
+.floating.three{
+  bottom:110px;
+  right:12px;
+}
+
+/* ================= QUICK CHOICE ================= */
+
+.quick{
+  padding:35px 7%;
+  background:white;
+}
+
+.quick-title{
+  text-align:center;
+  color:#082f55;
+  margin-bottom:22px;
+  font-size:23px;
+}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  max-width:1050px;
+  margin:auto;
+}
+
+.quick-card{
+  background:#f6fafc;
+  border:1px solid #e5edf2;
+  padding:22px;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  color:#082f55;
+  transition:.25s;
+}
+
+.quick-card:hover{
+  transform:translateY(-4px);
+  border-color:#0b999c;
+  box-shadow:0 10px 25px rgba(8,47,85,.08);
+}
+
+.quick-icon{
+  width:50px;
+  height:50px;
+  border-radius:15px;
+  background:#dcf6f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+}
+
+/* ================= GENERAL ================= */
+
+section{
+  padding:75px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.section-title h2{
+  color:#082f55;
+  font-size:34px;
+}
+
+.section-title p{
+  color:#718096;
+}
+
+/* grades */
+
+.grades{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:23px;
+}
+
+.grade-card{
+  background:white;
+  padding:30px 23px;
+  border-radius:25px;
+  text-align:center;
+  border:1px solid #e5edf2;
+  box-shadow:0 10px 30px rgba(8,47,85,.06);
+  transition:.3s;
+}
+
+.grade-card:hover{
+  transform:translateY(-7px);
+  box-shadow:0 18px 40px rgba(8,47,85,.12);
+}
+
+.grade-icon{
+  font-size:47px;
+}
+
+.grade-card h3{
+  color:#082f55;
+  font-size:21px;
+}
+
+.grade-card p{
+  color:#718096;
+  font-size:14px;
+  margin:7px 0 15px;
+}
+
+.card-link{
+  color:#0b999c;
+  font-weight:bold;
+}
+
+/* features */
+
+.features-section{
+  background:#082f55;
+  color:white;
+}
+
+.features-section .section-title h2{
+  color:white;
+}
+
+.features-section .section-title p{
+  color:#b9ccd9;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.feature{
+  background:#ffffff0d;
+  padding:27px 17px;
+  border-radius:21px;
+  text-align:center;
+  border:1px solid #ffffff12;
+}
+
+.feature-icon{
+  font-size:38px;
+}
+
+.feature h3{
+  font-size:18px;
+}
+
+.feature p{
+  color:#c9d9e4;
+  font-size:13px;
+}
+
+/* teacher */
+
+.teacher{
+  max-width:1000px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:35px;
+  align-items:center;
+  background:white;
+  padding:40px;
+  border-radius:30px;
+  box-shadow:0 12px 35px rgba(8,47,85,.07);
+}
+
+.teacher-avatar{
+  width:175px;
+  height:175px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#082f55,#0b999c);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:70px;
+}
+
+.teacher h2{
+  color:#082f55;
+  font-size:29px;
+}
+
+.teacher h3{
+  color:#0b999c;
+  margin:5px 0 10px;
+}
+
+.teacher p{
+  color:#637789;
+}
+
+/* subjects */
+
+.subjects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.subject{
+  background:white;
+  padding:27px;
+  border-radius:22px;
+  border:1px solid #e5edf2;
+  transition:.25s;
+}
+
+.subject:hover{
+  transform:translateY(-5px);
+}
+
+.subject-icon{
+  font-size:40px;
+}
+
+.subject h3{
+  color:#082f55;
+}
+
+.subject p{
+  color:#718096;
+  font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+  margin:50px 7%;
+  padding:55px 25px;
+  text-align:center;
+  color:white;
+  border-radius:35px;
+  background:linear-gradient(135deg,#0b999c,#087f8c);
+  box-shadow:0 20px 45px rgba(11,153,156,.22);
+}
+
+.cta h2{
+  font-size:34px;
+}
+
+.cta p{
+  color:#dffafa;
+  margin:7px 0 22px;
+}
+
+.cta a{
+  display:inline-block;
+  background:white;
+  color:#087f8c;
+  padding:12px 27px;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+/* footer */
+
+footer{
+  background:#061f38;
+  color:#b9ccd9;
+  text-align:center;
+  padding:35px 7%;
+}
+
+.footer-logo{
+  color:white;
+  font-size:27px;
+  font-weight:bold;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  header{
+    padding:0 4%;
+  }
+
+  .desktop-nav{
+    display:none;
+  }
+
+  .search-box{
+    width:170px;
+  }
+
+  .hero{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:55px 5%;
+  }
+
+  .hero p{
+    margin-left:auto;
+    margin-right:auto;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .grades,
+  .subjects{
+    grid-template-columns:1fr;
+  }
+
+  .features{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .teacher{
+    grid-template-columns:1fr;
+    text-align:center;
+    justify-items:center;
+  }
+}
+
+@media(max-width:520px){
+
+  header{
+    height:70px;
+  }
+
+  .logo h1{
+    font-size:21px;
+  }
+
+  .logo span{
+    display:none;
+  }
+
+  .search-box{
+    width:42px;
+    padding:3px;
+  }
+
+  .search-box input{
+    display:none;
+  }
+
+  .search-box button{
+    width:36px;
+    height:36px;
+  }
+
+  .hero h2{
+    font-size:40px;
+  }
+
+  .student-card{
+    height:330px;
+  }
+
+  .features{
+    grid-template-columns:1fr;
+  }
+
+  .teacher{
+    padding:28px 20px;
+  }
+
+  .cta{
+    margin:35px 5%;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>مَدَار</h1>
-    <p>منصة مدار التعليمية</p>
-  </header>
+<!-- ================= HEADER ================= -->
 
-  <nav>
-    <a href="#home">الرئيسية</a>
+<header>
+
+  <div class="logo">
+
+    <div class="logo-icon">م</div>
+
+    <div>
+      <h1>مَدَار</h1>
+      <span>منصة تعليمية تصنع الفرق</span>
+    </div>
+
+  </div>
+
+
+  <nav class="desktop-nav">
+
+    <a href="index.html">الرئيسية</a>
+
     <a href="#grades">الصفوف</a>
+
     <a href="#subjects">المواد</a>
-    <a href="#about">عن مدار</a>
+
+    <div class="search-box">
+      <input id="topSearch" type="text" placeholder="ابحث...">
+      <button onclick="searchSite()">🔍</button>
+    </div>
+
+    <a href="#start" class="start-btn">
+      ابدأ التعلم
+    </a>
+
+    <button class="menu-btn" onclick="openMenu()" aria-label="فتح القائمة">
+      ☰
+    </button>
+
   </nav>
 
-  <section class="hero" id="home">
-    <h2>مرحبًا بك في مدار 🎓</h2>
+
+  <div class="mobile-actions">
+
+    <div class="search-box">
+      <input id="mobileSearch" type="text" placeholder="ابحث...">
+      <button onclick="searchSite('mobile')">🔍</button>
+    </div>
+
+    <button class="menu-btn" onclick="openMenu()">
+      ☰
+    </button>
+
+  </div>
+
+</header>
+
+
+<!-- ================= SIDE MENU ================= -->
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<aside class="side-menu" id="sideMenu">
+
+  <div class="menu-head">
+
+    <div class="menu-brand">
+      مَدَار 🎓
+    </div>
+
+    <button class="close-menu" onclick="closeMenu()">
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="menu-search">
+
+    <input
+      id="menuSearch"
+      type="text"
+      placeholder="ابحث عن درس أو مادة..."
+    >
+
+    <button onclick="menuSearch()">
+      🔍
+    </button>
+
+  </div>
+
+
+  <div class="menu-title">
+    التنقل
+  </div>
+
+  <a href="index.html" class="menu-link menu-highlight">
+    <span class="menu-icon">🏠</span>
+    الرئيسية
+  </a>
+
+  <a href="#grades" class="menu-link">
+    <span class="menu-icon">📚</span>
+    الصفوف الدراسية
+  </a>
+
+  <a href="#subjects" class="menu-link">
+    <span class="menu-icon">📖</span>
+    المواد التعليمية
+  </a>
+
+
+  <div class="menu-title">
+    محتوى مَدَار
+  </div>
+
+  <a href="#" class="menu-link">
+    <span class="menu-icon">📝</span>
+    المذكرات
+  </a>
+
+  <a href="#" class="menu-link">
+    <span class="menu-icon">🎥</span>
+    الفيديوهات
+  </a>
+
+  <a href="#" class="menu-link">
+    <span class="menu-icon">🧠</span>
+    الاختبارات
+  </a>
+
+  <a href="#" class="menu-link">
+    <span class="menu-icon">🗺️</span>
+    الخرائط التعليمية
+  </a>
+
+
+  <div class="menu-title">
+    عن المنصة
+  </div>
+
+  <a href="#about" class="menu-link">
+    <span class="menu-icon">👨‍🏫</span>
+    الأستاذ عمر أحمد
+  </a>
+
+  <a href="#about" class="menu-link">
+    <span class="menu-icon">ℹ️</span>
+    عن مَدَار
+  </a>
+
+</aside>
+
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+  <div>
+
+    <div class="badge">
+      🎓 مرحبًا بك في منصة مَدَار
+    </div>
+
+    <h2>
+      تعلم بذكاء...
+      <br>
+      واصنع <span>نجاحك</span>
+    </h2>
 
     <p>
-      منصتك التعليمية لمحتوى دراسي مبسط ومنظم،
-      يساعدك على الفهم والمراجعة والاستعداد للاختبارات.
+      منصة تعليمية تجمع بين الشرح المبسط،
+      الخرائط التعليمية، الفيديوهات، المذكرات
+      والاختبارات التفاعلية في مكان واحد.
     </p>
 
-    <a href="#grades" class="button">ابدأ التعلم الآن</a>
-  </section>
+    <div class="hero-buttons">
 
-
-  <section class="section" id="grades">
-
-    <h2 class="section-title">اختر الصف الدراسي 📚</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">🎒</div>
-        <h3>المرحلة الابتدائية</h3>
-        <p>محتوى تعليمي مبسط لطلاب المرحلة الابتدائية.</p>
-        <button onclick="showMessage('المرحلة الابتدائية')">
-          دخول
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="icon">📖</div>
-        <h3>المرحلة الإعدادية</h3>
-        <p>دروس ومذكرات ومراجعات للمرحلة الإعدادية.</p>
-        <button onclick="showMessage('المرحلة الإعدادية')">
-          دخول
-        </button>
-      </div>
-
-      <div class="card">
-        <div class="icon">🎓</div>
-        <h3>المرحلة الثانوية</h3>
-        <p>محتوى تعليمي متخصص لطلاب المرحلة الثانوية.</p>
-        <button onclick="showMessage('المرحلة الثانوية')">
-          دخول
-        </button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <section class="section" id="subjects">
-
-    <h2 class="section-title">المواد الدراسية 📚</h2>
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">🌍</div>
-        <h3>الدراسات الاجتماعية</h3>
-        <p>جغرافيا وتاريخ بطريقة سهلة ومبسطة.</p>
-      <a href="social.html" style="
-  display:inline-block;
-  margin-top:18px;
-  background:#173b7a;
-  color:white;
-  text-decoration:none;
-  padding:10px 20px;
-  border-radius:8px;
-">
-  استكشف
+      <a href="#grades" class="primary-btn">
+        ابدأ رحلتك 🚀
       </a>
+
+      <a href="#about" class="secondary-btn">
+        تعرف على مَدَار
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-visual">
+
+    <div class="student-card">
+
+      <div class="student-placeholder">
+
+        <div class="emoji">
+          🎓📚
+        </div>
+
+        <h3>
+          طلاب اليوم...
+        </h3>
+
+        <p>
+          قادة المستقبل يبدأون رحلتهم من هنا
+        </p>
+
       </div>
 
-      <div class="card">
-        <div class="icon">🗺️</div>
-        <h3>الجغرافيا</h3>
-        <p>خرائط ومعلومات جغرافية ومراجعات.</p>
-        <button onclick="showMessage('الجغرافيا')">
-          استكشف
-        </button>
+      <div class="floating one">
+        ⭐ تعلم
       </div>
 
-      <div class="card">
-        <div class="icon">🏛️</div>
-        <h3>التاريخ</h3>
-        <p>دروس التاريخ بأسلوب مبسط ومنظم.</p>
-        <button onclick="showMessage('التاريخ')">
-          استكشف
-        </button>
+      <div class="floating two">
+        🏆 نجاح
+      </div>
+
+      <div class="floating three">
+        🧠 معرفة
       </div>
 
     </div>
-  </section>
+
+  </div>
+
+</section>
 
 
-  <section class="section" id="about">
+<!-- ================= QUICK CHOICE ================= -->
 
-    <h2 class="section-title">عن مدار 💙</h2>
+<section class="quick">
 
-    <div class="card">
+  <h2 class="quick-title">
+    ماذا تريد أن تتعلم اليوم؟
+  </h2>
+
+  <div class="quick-grid">
+
+    <a href="#grades" class="quick-card">
+
+      <div class="quick-icon">
+        🎓
+      </div>
+
+      <div>
+        <strong>اختر الصف</strong>
+        <p>الوصول إلى صفك مباشرة</p>
+      </div>
+
+    </a>
+
+
+    <a href="#subjects" class="quick-card">
+
+      <div class="quick-icon">
+        📚
+      </div>
+
+      <div>
+        <strong>اختر المادة</strong>
+        <p>استكشف المواد التعليمية</p>
+      </div>
+
+    </a>
+
+
+    <a href="#" class="quick-card">
+
+      <div class="quick-icon">
+        🧠
+      </div>
+
+      <div>
+        <strong>اختبر نفسك</strong>
+        <p>اختبارات تفاعلية قريبًا</p>
+      </div>
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GRADES ================= -->
+
+<section id="grades">
+
+  <div class="section-title">
+
+    <h2>اختر مرحلتك التعليمية</h2>
+
+    <p>
+      ادخل مباشرة إلى المحتوى الذي تبحث عنه
+    </p>
+
+  </div>
+
+
+  <div class="grades">
+
+    <div class="grade-card">
+
+      <div class="grade-icon">📚</div>
+
+      <h3>المرحلة الابتدائية</h3>
 
       <p>
-        مدار منصة تعليمية تهدف إلى تقديم محتوى تعليمي
-        واضح ومنظم يساعد الطلاب على التعلم والمراجعة
-        وتحقيق أفضل النتائج.
+        محتوى مبسط يساعد الطالب على بناء أساس قوي.
+      </p>
+
+      <a href="#" class="card-link">
+        استكشف المرحلة ←
+      </a>
+
+    </div>
+
+
+    <div class="grade-card">
+
+      <div class="grade-icon">🎓</div>
+
+      <h3>المرحلة الإعدادية</h3>
+
+      <p>
+        شرح وخرائط ومذكرات واختبارات.
+      </p>
+
+      <a href="social.html" class="card-link">
+        استكشف المرحلة ←
+      </a>
+
+    </div>
+
+
+    <div class="grade-card">
+
+      <div class="grade-icon">🏆</div>
+
+      <h3>المرحلة الثانوية</h3>
+
+      <p>
+        محتوى تعليمي منظم للاستعداد للامتحانات.
+      </p>
+
+      <a href="#" class="card-link">
+        قريبًا ←
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section">
+
+  <div class="section-title">
+
+    <h2>كل أدوات التعلم في مكان واحد</h2>
+
+    <p>
+      لأننا نريد أن نجعل المذاكرة أسهل وأوضح
+    </p>
+
+  </div>
+
+
+  <div class="features">
+
+    <div class="feature">
+      <div class="feature-icon">🗺️</div>
+      <h3>خرائط تعليمية</h3>
+      <p>خرائط مصممة لتسهيل فهم المعلومات.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🎥</div>
+      <h3>فيديوهات</h3>
+      <p>شرح بصري يساعد على تثبيت المعلومة.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📝</div>
+      <h3>مذكرات</h3>
+      <p>محتوى منظم للمراجعة والاستذكار.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🧠</div>
+      <h3>اختبارات</h3>
+      <p>اختبر نفسك وتابع مستواك.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about">
+
+  <div class="teacher">
+
+    <div class="teacher-avatar">
+      👨‍🏫
+    </div>
+
+    <div>
+
+      <h2>
+        الأستاذ عمر أحمد
+      </h2>
+
+      <h3>
+        مؤسس منصة مَدَار التعليمية
+      </h3>
+
+      <p>
+        مَدَار مشروع تعليمي يهدف إلى تقديم المحتوى
+        الدراسي بصورة منظمة ومبسطة، مع الاعتماد على
+        الخرائط والوسائل البصرية والتدريبات والاختبارات
+        لجعل رحلة التعلم أكثر وضوحًا ومتعة.
       </p>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <footer>
-    © 2026 مدار - منصة مدار التعليمية
-  </footer>
+<!-- ================= SUBJECTS ================= -->
+
+<section id="subjects">
+
+  <div class="section-title">
+
+    <h2>المواد التعليمية</h2>
+
+    <p>
+      اختر المادة التي تريد دراستها
+    </p>
+
+  </div>
 
 
-  <script>
+  <div class="subjects">
 
-    function showMessage(name) {
-      alert(
-        "أهلًا بك في " + name +
-        "\\n\\nسيتم إضافة المحتوى والخدمات التعليمية قريبًا."
-      );
-    }
+    <div class="subject">
 
-  </script>
+      <div class="subject-icon">🌍</div>
+
+      <h3>الدراسات الاجتماعية</h3>
+
+      <p>
+        جغرافيا وتاريخ بطريقة مبسطة ومنظمة.
+      </p>
+
+    </div>
+
+
+    <div class="subject">
+
+      <div class="subject-icon">🗺️</div>
+
+      <h3>الجغرافيا</h3>
+
+      <p>
+        خرائط ومفاهيم جغرافية تساعد على الفهم.
+      </p>
+
+    </div>
+
+
+    <div class="subject">
+
+      <div class="subject-icon">🏺</div>
+
+      <h3>التاريخ</h3>
+
+      <p>
+        الأحداث والحضارات بطريقة سهلة.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CTA ================= -->
+
+<section id="start" class="cta">
+
+  <h2>
+    مستعد تبدأ رحلتك؟ 🚀
+  </h2>
+
+  <p>
+    اختر صفك وابدأ التعلم مع مَدَار
+  </p>
+
+  <a href="#grades">
+    ابدأ الآن
+  </a>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footer-logo">
+    مَدَار
+  </div>
+
+  <p>
+    منصة مدار التعليمية © 2026
+  </p>
+
+  <p>
+    نحو تعلم أبسط... وفهم أعمق... ونجاح أكبر.
+  </p>
+
+</footer>
+
+
+<script>
+
+function openMenu(){
+
+  document.getElementById("sideMenu")
+    .classList.add("active");
+
+  document.getElementById("overlay")
+    .classList.add("active");
+
+}
+
+function closeMenu(){
+
+  document.getElementById("sideMenu")
+    .classList.remove("active");
+
+  document.getElementById("overlay")
+    .classList.remove("active");
+
+}
+
+
+function searchSite(type){
+
+  let input;
+
+  if(type === "mobile"){
+    input = document.getElementById("mobileSearch");
+  }else{
+    input = document.getElementById("topSearch");
+  }
+
+  let value = input.value.trim();
+
+  if(value === ""){
+    alert("اكتب ما تريد البحث عنه أولًا 🔍");
+    return;
+  }
+
+  alert("البحث عن: " + value + "\n\nسنربط البحث بالمحتوى الحقيقي للمنصة لاحقًا.");
+}
+
+
+function menuSearch(){
+
+  let value =
+    document.getElementById("menuSearch")
+    .value.trim();
+
+  if(value === ""){
+    alert("اكتب اسم الدرس أو المادة 🔍");
+    return;
+  }
+
+  alert("البحث عن: " + value + "\n\nسنربط محرك البحث بصفحات مَدَار لاحقًا.");
+}
+
+
+/* زر ESC لإغلاق القائمة */
+
+document.addEventListener("keydown",function(e){
+
+  if(e.key === "Escape"){
+    closeMenu();
+  }
+
+});
+
+</script>
 
 </body>
-</html>
+  </html>
