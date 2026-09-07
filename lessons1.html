@@ -1,378 +1,1032 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>دروس الدراسات الاجتماعية | مدار</title>
+  <title>دروس الصف الأول الإعدادي | منصة مدار</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <style>
 
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background: #f4f7fb;
-            color: #222;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            background: linear-gradient(135deg, #123c69, #1976a8);
-            color: white;
-            text-align: center;
-            padding: 35px 15px;
-        }
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f4f7fb;
+      color: #172033;
+      line-height: 1.7;
+    }
 
-        header h1 {
-            font-size: 34px;
-            margin-bottom: 10px;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        header p {
-            font-size: 18px;
-        }
+    /* HEADER */
 
-        .container {
-            width: 92%;
-            max-width: 1000px;
-            margin: 30px auto;
-        }
+    header {
+      background: linear-gradient(135deg, #071d49, #0b4b96);
+      color: white;
+      padding: 15px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 20px rgba(0,0,0,.15);
+    }
 
-        .back {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #123c69;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    .header {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+    }
 
-        .term {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+    }
 
-        .term-title {
-            color: #123c69;
-            font-size: 25px;
-            margin-bottom: 25px;
-            text-align: center;
-        }
+    .logo span {
+      color: #ffd447;
+    }
 
-        .unit {
-            border: 1px solid #e1e7ee;
-            border-radius: 16px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
+    .back {
+      background: rgba(255,255,255,.12);
+      padding: 8px 15px;
+      border-radius: 12px;
+      font-size: 14px;
+    }
 
-        .unit-title {
-            background: #eef5fb;
-            color: #123c69;
-            padding: 18px;
-            font-size: 21px;
-            font-weight: bold;
-        }
+    /* HERO */
 
-        .unit-content {
-            padding: 15px;
-        }
+    .hero {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
 
-        .lesson {
-            display: block;
-            text-decoration: none;
-            color: #222;
-            background: #fff;
-            border: 1px solid #e5e5e5;
-            border-right: 5px solid #1976a8;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            transition: 0.2s;
-        }
+    .hero-box {
+      background: linear-gradient(135deg, #0b3d88, #1670c9);
+      color: white;
+      border-radius: 28px;
+      padding: 45px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(10,55,120,.2);
+    }
 
-        .lesson:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
-        }
+    .hero-box::after {
+      content: "📚";
+      position: absolute;
+      left: 50px;
+      bottom: -25px;
+      font-size: 150px;
+      opacity: .08;
+    }
 
-        .lesson-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #123c69;
-            margin-bottom: 6px;
-        }
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,.14);
+      padding: 6px 15px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
 
-        .lesson-info {
-            color: #777;
-            font-size: 14px;
-        }
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 2;
+    }
 
-        .evaluation {
-            background: #fff8e8;
-            border-right-color: #d69e00;
-        }
+    .hero p {
+      font-size: 17px;
+      opacity: .92;
+      max-width: 700px;
+      position: relative;
+      z-index: 2;
+    }
 
-        .review {
-            background: #eef9f0;
-            border-right-color: #299447;
-        }
+    .year {
+      display: inline-block;
+      margin-top: 18px;
+      background: #ffd447;
+      color: #172033;
+      padding: 7px 17px;
+      border-radius: 10px;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
 
-        .term2 {
-            text-align: center;
-            padding: 30px;
-            color: #777;
-            background: #fafafa;
-            border-radius: 15px;
-        }
+    /* PAGE TITLE */
 
-        footer {
-            background: #123c69;
-            color: white;
-            text-align: center;
-            padding: 22px;
-            margin-top: 40px;
-        }
-    </style>
+    .section {
+      max-width: 1200px;
+      margin: 45px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      color: #092d68;
+      font-size: 29px;
+      margin-bottom: 5px;
+    }
+
+    .section-title p {
+      color: #6b7585;
+    }
+
+    /* UNIT */
+
+    .unit {
+      background: white;
+      border-radius: 22px;
+      margin-bottom: 30px;
+      overflow: hidden;
+      border: 1px solid #e5eaf2;
+      box-shadow: 0 8px 25px rgba(20,40,80,.07);
+    }
+
+    .unit-header {
+      background: linear-gradient(135deg, #092d68, #0c579f);
+      color: white;
+      padding: 20px 25px;
+    }
+
+    .unit-number {
+      font-size: 13px;
+      opacity: .8;
+      margin-bottom: 3px;
+    }
+
+    .unit-header h2 {
+      font-size: 23px;
+    }
+
+    .lessons {
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    /* LESSON */
+
+    .lesson {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 17px;
+      border-radius: 16px;
+      background: #f7f9fc;
+      border: 1px solid #e9edf4;
+      transition: .3s;
+    }
+
+    .lesson:hover {
+      transform: translateX(-5px);
+      border-color: #b9cee8;
+      box-shadow: 0 7px 20px rgba(20,50,100,.08);
+    }
+
+    .lesson-icon {
+      width: 55px;
+      height: 55px;
+      min-width: 55px;
+      border-radius: 15px;
+      background: #e9f3ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+    }
+
+    .lesson-info {
+      flex: 1;
+    }
+
+    .lesson-info h3 {
+      color: #092d68;
+      font-size: 17px;
+      margin-bottom: 3px;
+    }
+
+    .lesson-info p {
+      color: #737d8c;
+      font-size: 13px;
+    }
+
+    .lesson-btn {
+      background: #0b438b;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    /* REVIEW */
+
+    .review {
+      background: #fff9e6;
+      border: 1px solid #f3df9a;
+    }
+
+    .review .lesson-icon {
+      background: #fff0b8;
+    }
+
+    .review .lesson-btn {
+      background: #c58a00;
+    }
+
+    /* TERM 2 */
+
+    .term2 {
+      background: linear-gradient(135deg, #edf2f8, #f8fafc);
+      border: 2px dashed #c9d3e2;
+      border-radius: 22px;
+      padding: 35px 20px;
+      text-align: center;
+      margin-top: 45px;
+    }
+
+    .term2-icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .term2 h2 {
+      color: #092d68;
+      margin-bottom: 5px;
+    }
+
+    .term2 p {
+      color: #727d8c;
+      font-size: 14px;
+    }
+
+    .coming {
+      display: inline-block;
+      margin-top: 15px;
+      background: #dce4ef;
+      color: #42536b;
+      padding: 7px 15px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #061735;
+      color: white;
+      text-align: center;
+      padding: 28px 15px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #ffd447;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .back {
+        font-size: 12px;
+        padding: 7px 10px;
+      }
+
+      .hero {
+        margin: 20px auto;
+      }
+
+      .hero-box {
+        padding: 30px 22px;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+
+      .unit-header {
+        padding: 17px;
+      }
+
+      .unit-header h2 {
+        font-size: 19px;
+      }
+
+      .lessons {
+        padding: 12px;
+      }
+
+      .lesson {
+        padding: 13px;
+      }
+
+      .lesson-info h3 {
+        font-size: 15px;
+      }
+
+      .lesson-info p {
+        font-size: 12px;
+      }
+
+      .lesson-btn {
+        padding: 7px 9px;
+        font-size: 11px;
+      }
+
+      .lesson-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        font-size: 22px;
+      }
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<header>
-    <h1>مَدَار</h1>
-    <p>منصة مدار التعليمية</p>
-</header>
 
-<div class="container">
+  <!-- HEADER -->
 
-    <a class="back" href="prep1.html">
-        ← العودة إلى الصف الأول الإعدادي
-    </a>
+  <header>
 
-    <!-- الترم الأول -->
-    <section class="term">
+    <div class="header">
 
-        <h2 class="term-title">
-            📚 الدراسات الاجتماعية — الترم الأول 2026 / 2027
+      <div class="logo">
+        مَدَار<span>•</span>
+      </div>
+
+      <a href="prep1.html" class="back">
+        ← الصف الأول الإعدادي
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-box">
+
+      <div class="badge">
+        📚 الدراسات الاجتماعية
+      </div>
+
+      <h1>
+        دروس الصف الأول الإعدادي
+      </h1>
+
+      <p>
+        اختر الوحدة والدرس الذي تريد دراسته،
+        وتعلم بطريقة منظمة ومبسطة مع منصة مَدَار.
+      </p>
+
+      <div class="year">
+        العام الدراسي 2026 / 2027
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- LESSONS -->
+
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>
+        📖 محتوى الفصل الدراسي الأول
+      </h2>
+
+      <p>
+        اختر الوحدة ثم ابدأ الدرس
+      </p>
+
+    </div>
+
+
+
+    <!-- UNIT 1 -->
+
+    <div class="unit">
+
+      <div class="unit-header">
+
+        <div class="unit-number">
+          الوحدة الأولى
+        </div>
+
+        <h2>
+          الملامح الطبيعية لقارة إفريقيا وحضاراتها القديمة
         </h2>
 
-        <!-- الوحدة الأولى -->
-        <div class="unit">
+      </div>
 
-            <div class="unit-title">
-                الوحدة الأولى: الملامح الطبيعية لقارة إفريقيا
-            </div>
 
-            <div class="unit-content">
+      <div class="lessons">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الأول: قارة إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        الموقع والتكوين والتضاريس والمناخ
-                    </div>
-                </a>
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثاني: مظاهر سطح قارة إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        التعرف على أهم مظاهر السطح بالقارة
-                    </div>
-                </a>
+        <div class="lesson">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثالث: نهر النيل والحضارات القديمة في إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        دور نهر النيل في نشأة الحضارات
-                    </div>
-                </a>
+          <div class="lesson-icon">
+            🌍
+          </div>
 
-                <a class="lesson evaluation" href="#">
-                    <div class="lesson-title">
-                        📝 تقييم ختامي على الوحدة الأولى
-                    </div>
-                    <div class="lesson-info">
-                        تدريبات وأسئلة على الوحدة
-                    </div>
-                </a>
+          <div class="lesson-info">
 
-            </div>
+            <h3>
+              الدرس الأول: قارة إفريقيا (الموقع والكشوف الجغرافية)
+            </h3>
+
+            <p>
+              الموقع الجغرافي والفلكي وأهمية موقع قارة إفريقيا والكشوف الجغرافية.
+            </p>
+
+          </div>
+
+          <a href="lesson1.html" class="lesson-btn">
+            ابدأ الدرس
+          </a>
+
         </div>
 
-        <!-- الوحدة الثانية -->
-        <div class="unit">
 
-            <div class="unit-title">
-                الوحدة الثانية: الحضارة المصرية القديمة وعلاقتها بالحضارات الأفريقية
-            </div>
 
-            <div class="unit-content">
+        <div class="lesson">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الأول: عصر الدولة القديمة
-                    </div>
-                    <div class="lesson-info">
-                        عصر بناة الأهرام
-                    </div>
-                </a>
+          <div class="lesson-icon">
+            🗺️
+          </div>
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثاني: عصر الدولة الوسطى
-                    </div>
-                    <div class="lesson-info">
-                        عصر الرخاء الاقتصادي
-                    </div>
-                </a>
+          <div class="lesson-info">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثالث: عصر الدولة الحديثة
-                    </div>
-                    <div class="lesson-info">
-                        عصر المجد الحربي
-                    </div>
-                </a>
+            <h3>
+              الدرس الثاني: مظاهر سطح قارة إفريقيا
+            </h3>
 
-                <a class="lesson evaluation" href="#">
-                    <div class="lesson-title">
-                        📝 تقييم ختامي على الوحدة الثانية
-                    </div>
-                    <div class="lesson-info">
-                        تدريبات وأسئلة على الوحدة
-                    </div>
-                </a>
+            <p>
+              تعرف على أهم مظاهر السطح في قارة إفريقيا.
+            </p>
 
-            </div>
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
         </div>
 
-        <!-- الوحدة الثالثة -->
-        <div class="unit">
 
-            <div class="unit-title">
-                الوحدة الثالثة: النظم البيئية في قارة إفريقيا
-            </div>
 
-            <div class="unit-content">
+        <div class="lesson">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الأول: نظم الغابات في إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        الغابات المدارية المطيرة وغابات البحر المتوسط
-                    </div>
-                </a>
+          <div class="lesson-icon">
+            🌊
+          </div>
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثاني: نظم الحشائش والصحاري الحارة في إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        الحشائش الحارة والمعتدلة والصحاري الحارة
-                    </div>
-                </a>
+          <div class="lesson-info">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثالث: النظم البيئية المائية في إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        دراسة النظم البيئية المائية بالقارة
-                    </div>
-                </a>
+            <h3>
+              الدرس الثالث: نهر النيل والحضارات القديمة في إفريقيا
+            </h3>
 
-                <a class="lesson evaluation" href="#">
-                    <div class="lesson-title">
-                        📝 تقييم ختامي على الوحدة الثالثة
-                    </div>
-                    <div class="lesson-info">
-                        تدريبات وأسئلة على الوحدة
-                    </div>
-                </a>
+            <p>
+              نهر النيل ودوره في نشأة الحضارات القديمة.
+            </p>
 
-            </div>
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
         </div>
 
-        <!-- الوحدة الرابعة -->
-        <div class="unit">
 
-            <div class="unit-title">
-                الوحدة الرابعة: علاقة مصر بإفريقيا خلال العصور الوسطى
-            </div>
 
-            <div class="unit-content">
+        <div class="lesson review">
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الأول: انتشار الإسلام في إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        انتشار الإسلام ودور مصر في القارة
-                    </div>
-                </a>
+          <div class="lesson-icon">
+            📝
+          </div>
 
-                <a class="lesson" href="#">
-                    <div class="lesson-title">
-                        الدرس الثاني: دور مصر الحضاري في قارة إفريقيا
-                    </div>
-                    <div class="lesson-info">
-                        الدور الحضاري والتاريخي لمصر في إفريقيا
-                    </div>
-                </a>
+          <div class="lesson-info">
 
-                <a class="lesson evaluation" href="#">
-                    <div class="lesson-title">
-                        📝 تقييم ختامي على الوحدة الرابعة
-                    </div>
-                    <div class="lesson-info">
-                        تدريبات وأسئلة على الوحدة
-                    </div>
-                </a>
+            <h3>
+              تقييم ختامي على الوحدة الأولى
+            </h3>
 
-                <a class="lesson review" href="#">
-                    <div class="lesson-title">
-                        📖 المراجعة العامة على الفصل الدراسي الأول
-                    </div>
-                    <div class="lesson-info">
-                        مراجعة شاملة للترم الأول
-                    </div>
-                </a>
+            <p>
+              اختبر معلوماتك بعد الانتهاء من دروس الوحدة.
+            </p>
 
-            </div>
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
         </div>
 
-    </section>
+      </div>
 
-    <!-- الترم الثاني -->
-    <section class="term">
+    </div>
 
-        <h2 class="term-title">
-            📘 الترم الثاني 2026 / 2027
+
+
+    <!-- UNIT 2 -->
+
+    <div class="unit">
+
+      <div class="unit-header">
+
+        <div class="unit-number">
+          الوحدة الثانية
+        </div>
+
+        <h2>
+          الحضارة المصرية القديمة وعلاقتها بحضارات إفريقيا
         </h2>
 
-        <div class="term2">
-            سيتم إضافة وحدات ودروس الترم الثاني بعد التحقق من كتاب الوزارة.
+      </div>
+
+
+      <div class="lessons">
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            🏺
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الأول: عصر الدولة القديمة (عصر بناة الأهرام)
+            </h3>
+
+            <p>
+              تعرف على عصر الدولة القديمة وأهم إنجازاته.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
         </div>
 
-    </section>
 
-</div>
 
-<footer>
-    <p>© 2026 مَدَار - منصة مدار التعليمية</p>
-</footer>
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            👑
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الثاني: عصر الدولة الوسطى (عصر الرخاء الاقتصادي)
+            </h3>
+
+            <p>
+              أهم مظاهر الحضارة في عصر الدولة الوسطى.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            ⚔️
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الثالث: عصر الدولة الحديثة (عصر المجد الحربي)
+            </h3>
+
+            <p>
+              مصر في عصر الدولة الحديثة وأبرز إنجازاتها.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson review">
+
+          <div class="lesson-icon">
+            📝
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              تقييم ختامي على الوحدة الثانية
+            </h3>
+
+            <p>
+              تقييم شامل على دروس الوحدة الثانية.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- UNIT 3 -->
+
+    <div class="unit">
+
+      <div class="unit-header">
+
+        <div class="unit-number">
+          الوحدة الثالثة
+        </div>
+
+        <h2>
+          النظم البيئية في قارة إفريقيا
+        </h2>
+
+      </div>
+
+
+      <div class="lessons">
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            🌳
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الأول: نظم الغابات في إفريقيا
+            </h3>
+
+            <p>
+              الغابات المدارية المطيرة وغابات البحر المتوسط.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            🌾
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الثاني: نظم الحشائش والصحاري الحارة في إفريقيا
+            </h3>
+
+            <p>
+              الحشائش الحارة والمعتدلة والصحاري الحارة.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            🐟
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الثالث: النظم البيئية المائية في إفريقيا
+            </h3>
+
+            <p>
+              أهم النظم البيئية المائية في القارة.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson review">
+
+          <div class="lesson-icon">
+            📝
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              تقييم ختامي على الوحدة الثالثة
+            </h3>
+
+            <p>
+              اختبر نفسك في محتوى الوحدة الثالثة.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- UNIT 4 -->
+
+    <div class="unit">
+
+      <div class="unit-header">
+
+        <div class="unit-number">
+          الوحدة الرابعة
+        </div>
+
+        <h2>
+          علاقة مصر بإفريقيا خلال العصور الوسطى
+        </h2>
+
+      </div>
+
+
+      <div class="lessons">
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            ☪️
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الأول: انتشار الإسلام في إفريقيا
+            </h3>
+
+            <p>
+              انتشار الإسلام وأثره الحضاري في القارة الإفريقية.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson">
+
+          <div class="lesson-icon">
+            🇪🇬
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              الدرس الثاني: دور مصر الحضاري في قارة إفريقيا
+            </h3>
+
+            <p>
+              دور مصر وعلاقاتها الحضارية مع قارة إفريقيا.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson review">
+
+          <div class="lesson-icon">
+            📝
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              تقييم ختامي على الوحدة الرابعة
+            </h3>
+
+            <p>
+              تقييم شامل على الوحدة الرابعة.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+
+
+        <div class="lesson review">
+
+          <div class="lesson-icon">
+            🏆
+          </div>
+
+          <div class="lesson-info">
+
+            <h3>
+              المراجعة العامة على الفصل الدراسي الأول
+            </h3>
+
+            <p>
+              مراجعة شاملة قبل الاختبار.
+            </p>
+
+          </div>
+
+          <a href="#" class="lesson-btn"
+             onclick="comingSoon(); return false;">
+            قريبًا
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- TERM 2 -->
+
+    <div class="term2">
+
+      <div class="term2-icon">
+        🚀
+      </div>
+
+      <h2>
+        الفصل الدراسي الثاني
+      </h2>
+
+      <p>
+        المحتوى الخاص بالفصل الدراسي الثاني سيتم إضافته قريبًا.
+      </p>
+
+      <div class="coming">
+        🔒 المحتوى قيد التجهيز
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 <span>مَدَار</span> — منصة تعليمية
+    </p>
+
+    <p>
+      الأستاذ عمر أحمد
+    </p>
+
+  </footer>
+
+
+
+  <script>
+
+    function comingSoon() {
+      alert("🚀 هذا الدرس سيتم إضافته قريبًا على منصة مَدَار.");
+    }
+
+  </script>
+
 
 </body>
-  </html>
+
+</html>
