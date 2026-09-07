@@ -35,4 +35,134 @@
     }
 
     .container {
-      max
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #173b7a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .title {
+      text-align: center;
+      color: #173b7a;
+      margin-bottom: 35px;
+      font-size: 30px;
+    }
+
+    .grades {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .grade {
+      background: white;
+      padding: 30px 20px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .grade .icon {
+      font-size: 45px;
+      margin-bottom: 15px;
+    }
+
+    .grade h2 {
+      color: #2563eb;
+      margin-bottom: 12px;
+    }
+
+    .grade p {
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .grade a {
+      display: inline-block;
+      margin-top: 18px;
+      background: #173b7a;
+      color: white;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 8px;
+    }
+
+    footer {
+      margin-top: 40px;
+      background: #173b7a;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>📚 الدراسات الاجتماعية</h1>
+    <p>منصة مدار التعليمية</p>
+  </header>
+
+  <div class="container">
+
+    <a class="back" href="index.html">← العودة إلى الرئيسية</a>
+
+    <h2 class="title">اختر الصف الدراسي</h2>
+
+    <div class="grades">
+
+      <div class="grade">
+        <div class="icon">📘</div>
+        <h2>الصف الأول الإعدادي</h2>
+        <p>
+          دروس ومذكرات ومراجعات الدراسات الاجتماعية
+          للصف الأول الإعدادي.
+        </p>
+
+        <a href="prep1.html">دخول الصف</a>
+      </div>
+
+      <div class="grade">
+        <div class="icon">📗</div>
+        <h2>الصف الثاني الإعدادي</h2>
+        <p>
+          محتوى تعليمي ومراجعات للصف الثاني الإعدادي.
+        </p>
+
+        <a href="#" onclick="comingSoon()">دخول الصف</a>
+      </div>
+
+      <div class="grade">
+        <div class="icon">📕</div>
+        <h2>الصف الثالث الإعدادي</h2>
+        <p>
+          محتوى ومراجعات للصف الثالث الإعدادي.
+        </p>
+
+        <a href="#" onclick="comingSoon()">دخول الصف</a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 مدار - منصة مدار التعليمية
+  </footer>
+
+  <script>
+    function comingSoon() {
+      alert("سيتم إضافة محتوى هذا الصف قريبًا 🚀");
+    }
+  </script>
+
+</body>
+</html>
