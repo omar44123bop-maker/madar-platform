@@ -3,157 +3,662 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصف الأول الإعدادي | مدار</title>
+
+  <title>الصف الأول الإعدادي | منصة مدار</title>
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
     }
 
     body {
-      background: #f5f7fb;
-      color: #222;
+      font-family: Tahoma, Arial, sans-serif;
+      background: #f5f8fc;
+      color: #172033;
+      line-height: 1.7;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, #173b7a, #2563eb);
+      background: linear-gradient(135deg, #071d49, #0b3b82);
       color: white;
-      text-align: center;
-      padding: 45px 20px;
+      padding: 16px 5%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 18px rgba(0,0,0,.15);
     }
 
-    header h1 {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 18px;
-    }
-
-    .container {
-      max-width: 1100px;
+    .header-content {
+      max-width: 1200px;
       margin: auto;
-      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #ffd34d;
     }
 
     .back {
+      background: rgba(255,255,255,.12);
+      padding: 9px 16px;
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .back:hover {
+      background: rgba(255,255,255,.22);
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1200px;
+      margin: 35px auto;
+      padding: 0 20px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, #0b3b82, #1264bd);
+      border-radius: 28px;
+      padding: 45px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(11,59,130,.22);
+    }
+
+    .hero-box::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      left: -80px;
+      top: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 750px;
+    }
+
+    .badge {
       display: inline-block;
-      margin-bottom: 25px;
-      color: #173b7a;
-      text-decoration: none;
+      background: rgba(255,255,255,.15);
+      padding: 7px 15px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      opacity: .93;
+      margin-bottom: 22px;
+    }
+
+    .year {
+      display: inline-block;
+      background: #ffd34d;
+      color: #172033;
+      padding: 8px 18px;
+      border-radius: 10px;
       font-weight: bold;
     }
 
-    .title {
-      text-align: center;
-      color: #173b7a;
-      font-size: 30px;
-      margin-bottom: 35px;
+    /* SECTION */
+    .section {
+      max-width: 1200px;
+      margin: 55px auto;
+      padding: 0 20px;
     }
 
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      color: #092b63;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: #687386;
+    }
+
+    /* CARDS */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
     .card {
       background: white;
-      padding: 30px 20px;
-      border-radius: 16px;
+      border-radius: 20px;
+      padding: 28px 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+      box-shadow: 0 8px 25px rgba(20,40,80,.08);
+      border: 1px solid #e8edf5;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px rgba(20,40,80,.14);
     }
 
     .icon {
-      font-size: 45px;
-      margin-bottom: 15px;
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 15px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      background: #edf5ff;
     }
 
-    .card h2 {
-      color: #2563eb;
-      margin-bottom: 12px;
+    .card h3 {
+      color: #092b63;
+      margin-bottom: 8px;
+      font-size: 21px;
     }
 
     .card p {
-      color: #555;
-      line-height: 1.7;
+      color: #6d7787;
+      font-size: 14px;
+      margin-bottom: 18px;
     }
 
-    .card a {
+    .btn {
       display: inline-block;
-      margin-top: 18px;
-      background: #173b7a;
+      background: #0b3b82;
       color: white;
-      text-decoration: none;
-      padding: 11px 22px;
-      border-radius: 8px;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-size: 14px;
+      transition: .3s;
     }
 
+    .btn:hover {
+      background: #07295e;
+    }
+
+    /* SUBJECT */
+    .subject-box {
+      background: white;
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(20,40,80,.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .subject-info h2 {
+      color: #092b63;
+      margin-bottom: 8px;
+    }
+
+    .subject-info p {
+      color: #667085;
+    }
+
+    .subject-icon {
+      font-size: 65px;
+    }
+
+    /* FEATURES */
+    .features {
+      background: #071d49;
+      color: white;
+      padding: 55px 20px;
+      margin-top: 60px;
+    }
+
+    .features-inner {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .features h2 {
+      text-align: center;
+      margin-bottom: 35px;
+      font-size: 30px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,.08);
+      padding: 25px 18px;
+      border-radius: 18px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .feature-icon {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      margin-bottom: 5px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      opacity: .75;
+    }
+
+    /* CTA */
+    .cta {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .cta-box {
+      background: linear-gradient(135deg, #ffd34d, #ffbd25);
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      color: #172033;
+    }
+
+    .cta-box h2 {
+      margin-bottom: 8px;
+      font-size: 28px;
+    }
+
+    .cta-box p {
+      margin-bottom: 20px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #071d49;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
     footer {
-      margin-top: 40px;
-      background: #173b7a;
+      background: #061735;
       color: white;
       text-align: center;
-      padding: 22px;
+      padding: 25px 15px;
+      font-size: 14px;
+    }
+
+    footer span {
+      color: #ffd34d;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 13px 16px;
+      }
+
+      .logo {
+        font-size: 24px;
+      }
+
+      .back {
+        padding: 7px 11px;
+        font-size: 13px;
+      }
+
+      .hero {
+        margin: 20px auto;
+      }
+
+      .hero-box {
+        padding: 30px 22px;
+        border-radius: 22px;
+      }
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .subject-box {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section {
+        margin: 40px auto;
+      }
+
+      .section-title h2 {
+        font-size: 25px;
+      }
+
+      .cta-box {
+        padding: 28px 18px;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <!-- HEADER -->
   <header>
-    <h1>📘 الصف الأول الإعدادي</h1>
-    <p>الدراسات الاجتماعية - منصة مدار</p>
+    <div class="header-content">
+
+      <div class="logo">
+        مَدَار<span>•</span>
+      </div>
+
+      <a href="social.html" class="back">
+        ← الدراسات الاجتماعية
+      </a>
+
+    </div>
   </header>
 
-  <div class="container">
 
-    <a class="back" href="social.html">← العودة للدراسات الاجتماعية</a>
+  <!-- HERO -->
+  <section class="hero">
 
-    <h2 class="title">محتوى الصف الأول الإعدادي</h2>
+    <div class="hero-box">
 
-    <div class="cards">
+      <div class="hero-content">
 
-      <div class="card">
-        <div class="icon">📚</div>
-        <h2>الدروس</h2>
-        <p>شرح الدروس بطريقة مبسطة ومنظمة.</p>
-        <a href="lessons1.html">عرض الدروس</a>
-      </div>
+        <div class="badge">
+          📚 منصة مدار التعليمية
+        </div>
 
-      <div class="card">
-        <div class="icon">📖</div>
-        <h2>المذكرات</h2>
-        <p>مذكرات ومراجعات تساعدك على المذاكرة.</p>
-        <a href="#">عرض المذكرات</a>
-      </div>
+        <h1>
+          الصف الأول الإعدادي
+        </h1>
 
-      <div class="card">
-        <div class="icon">🎥</div>
-        <h2>الفيديوهات</h2>
-        <p>دروس فيديو تعليمية ومراجعات.</p>
-        <a href="#">مشاهدة الفيديوهات</a>
-      </div>
+        <p>
+          كل ما تحتاجه في الدراسات الاجتماعية
+          في مكان واحد، بطريقة منظمة وبسيطة تساعدك على الفهم والنجاح.
+        </p>
 
-      <div class="card">
-        <div class="icon">📝</div>
-        <h2>الاختبارات</h2>
-        <p>اختبارات وأسئلة للتدريب وقياس مستواك.</p>
-        <a href="#">ابدأ الاختبار</a>
+        <div class="year">
+          العام الدراسي 2026 / 2027
+        </div>
+
       </div>
 
     </div>
 
-  </div>
+  </section>
 
+
+  <!-- MAIN CONTENT -->
+  <section class="section">
+
+    <div class="section-title">
+
+      <h2>ماذا تريد أن تتعلم؟</h2>
+
+      <p>
+        اختر القسم الذي تريد الدخول إليه
+      </p>
+
+    </div>
+
+
+    <div class="cards">
+
+      <!-- LESSONS -->
+      <div class="card">
+
+        <div class="icon">📖</div>
+
+        <h3>الدروس</h3>
+
+        <p>
+          شرح الدروس بطريقة مبسطة ومنظمة
+        </p>
+
+        <a href="lessons1.html" class="btn">
+          عرض الدروس
+        </a>
+
+      </div>
+
+
+      <!-- NOTES -->
+      <div class="card">
+
+        <div class="icon">📝</div>
+
+        <h3>المذكرات</h3>
+
+        <p>
+          مذكرات ومراجعات تساعدك على التفوق
+        </p>
+
+        <a href="#" class="btn"
+           onclick="comingSoon(); return false;">
+          المذكرات
+        </a>
+
+      </div>
+
+
+      <!-- VIDEOS -->
+      <div class="card">
+
+        <div class="icon">🎥</div>
+
+        <h3>الفيديوهات</h3>
+
+        <p>
+          شرح مرئي بطريقة سهلة وممتعة
+        </p>
+
+        <a href="#" class="btn"
+           onclick="comingSoon(); return false;">
+          مشاهدة الفيديوهات
+        </a>
+
+      </div>
+
+
+      <!-- TESTS -->
+      <div class="card">
+
+        <div class="icon">🧠</div>
+
+        <h3>الاختبارات</h3>
+
+        <p>
+          اختبر نفسك وتعرف على مستواك
+        </p>
+
+        <a href="#" class="btn"
+           onclick="comingSoon(); return false;">
+          ابدأ الاختبار
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUBJECT -->
+  <section class="section">
+
+    <div class="subject-box">
+
+      <div class="subject-info">
+
+        <h2>
+          🌍 الدراسات الاجتماعية
+        </h2>
+
+        <p>
+          التاريخ والجغرافيا في محتوى واحد،
+          مع خرائط وشرح وأسئلة وتدريبات.
+        </p>
+
+      </div>
+
+      <div class="subject-icon">
+        🌍
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <div class="features-inner">
+
+      <h2>
+        مميزات التعلم في مَدَار
+      </h2>
+
+      <div class="feature-grid">
+
+        <div class="feature">
+          <div class="feature-icon">🗺️</div>
+          <h3>خرائط تعليمية</h3>
+          <p>خرائط تساعدك على فهم الجغرافيا</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🎥</div>
+          <h3>فيديوهات</h3>
+          <p>شرح بصري بسيط وسهل</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">📝</div>
+          <h3>مذكرات</h3>
+          <p>مراجعات منظمة للمذاكرة</p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">🏆</div>
+          <h3>اختبارات</h3>
+          <p>تدرب واختبر معلوماتك</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="cta">
+
+    <div class="cta-box">
+
+      <h2>
+        🚀 جاهز تبدأ رحلتك؟
+      </h2>
+
+      <p>
+        ابدأ بالدروس وتعلم خطوة بخطوة مع منصة مَدَار.
+      </p>
+
+      <a href="lessons1.html" class="cta-btn">
+        ابدأ الدروس الآن
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
   <footer>
-    © 2026 مدار - منصة مدار التعليمية
+
+    <p>
+      © 2026 <span>مَدَار</span> — منصة تعليمية
+    </p>
+
+    <p>
+      الأستاذ عمر أحمد
+    </p>
+
   </footer>
+
+
+  <script>
+
+    function comingSoon() {
+      alert("🚀 القسم ده هيتوفر قريبًا على منصة مَدَار.");
+    }
+
+  </script>
 
 </body>
 </html>
