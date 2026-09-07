@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مدار أكاديمي | عصر الدولة القديمة</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma, Arial, sans-serif;
+    background:#f4f7fb;
+    color:#1f2937;
+    line-height:1.9;
+}
+
+header{
+    background:linear-gradient(135deg,#123c69,#1d6fa5);
+    color:white;
+    padding:18px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#ffd166;
+}
+
+.header-info{
+    font-size:14px;
+}
+
+.hero{
+    min-height:390px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+    padding:50px 20px;
+    background:
+    linear-gradient(rgba(10,35,60,.75),rgba(10,35,60,.82)),
+    url("https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=1600&q=80")
+    center/cover;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.badge{
+    display:inline-block;
+    background:#ffd166;
+    color:#17202a;
+    padding:7px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+.container{
+    width:92%;
+    max-width:1100px;
+    margin:35px auto;
+}
+
+.section{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    margin-bottom:28px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.section-title{
+    color:#123c69;
+    font-size:27px;
+    margin-bottom:18px;
+    border-right:5px solid #ffd166;
+    padding-right:12px;
+}
+
+.objectives{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.objective{
+    background:#f1f7fc;
+    padding:18px;
+    border-radius:14px;
+    border:1px solid #dcebf5;
+}
+
+.objective h3{
+    color:#176b9e;
+    margin-bottom:8px;
+}
+
+.highlight{
+    background:#fff8df;
+    border-right:5px solid #ffd166;
+    padding:18px;
+    border-radius:10px;
+    margin:20px 0;
+}
+
+.timeline{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.timeline-card{
+    background:#f7fafc;
+    border:2px solid #e3edf4;
+    border-radius:15px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.timeline-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.1);
+}
+
+.number{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#123c69;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 12px;
+    font-weight:bold;
+}
+
+.timeline-card h3{
+    color:#176b9e;
+    margin-bottom:7px;
+}
+
+.persons{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:18px;
+}
+
+.person{
+    border-radius:15px;
+    overflow:hidden;
+    background:#f8fafc;
+    border:1px solid #e5e7eb;
+}
+
+.person img{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+}
+
+.person-content{
+    padding:18px;
+}
+
+.person-content h3{
+    color:#123c69;
+}
+
+.info-box{
+    padding:18px;
+    border-radius:12px;
+    background:#eef7ff;
+    margin:15px 0;
+}
+
+.question-box{
+    border:2px solid #e4ebf1;
+    border-radius:15px;
+    padding:20px;
+    margin:18px 0;
+    background:#fff;
+}
+
+.question-title{
+    font-weight:bold;
+    color:#123c69;
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.answers{
+    display:grid;
+    gap:10px;
+}
+
+.answer-btn{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #d4dce3;
+    background:#f8fafc;
+    border-radius:10px;
+    cursor:pointer;
+    text-align:right;
+    font-size:15px;
+    transition:.2s;
+}
+
+.answer-btn:hover{
+    background:#edf5fb;
+    border-color:#1d6fa5;
+}
+
+.answer-btn.correct{
+    background:#dff7e8;
+    border-color:#27ae60;
+    color:#166534;
+}
+
+.answer-btn.wrong{
+    background:#ffe4e4;
+    border-color:#e74c3c;
+    color:#991b1b;
+}
+
+.feedback{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
+}
+
+.feedback.show{
+    display:block;
+}
+
+.feedback.good{
+    background:#e5f8ec;
+    color:#166534;
+}
+
+.feedback.bad{
+    background:#ffe9e9;
+    color:#991b1b;
+}
+
+.exam{
+    background:linear-gradient(135deg,#102f4e,#174f77);
+    color:white;
+}
+
+.exam .section-title{
+    color:white;
+}
+
+.exam-question{
+    background:white;
+    color:#222;
+    border-radius:14px;
+    padding:20px;
+    margin:18px 0;
+}
+
+.exam-question h3{
+    color:#123c69;
+    margin-bottom:12px;
+}
+
+.exam-option{
+    display:block;
+    margin:9px 0;
+    padding:10px;
+    border-radius:9px;
+    background:#f5f7fa;
+    cursor:pointer;
+}
+
+.exam-option:hover{
+    background:#eaf2f8;
+}
+
+.exam-option input{
+    margin-left:8px;
+}
+
+.submit-btn,
+.retry-btn{
+    border:none;
+    background:#ffd166;
+    color:#17202a;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+    margin-top:15px;
+}
+
+.submit-btn:hover,
+.retry-btn:hover{
+    transform:scale(1.03);
+}
+
+.result{
+    display:none;
+    background:white;
+    color:#222;
+    border-radius:15px;
+    padding:25px;
+    margin-top:25px;
+    text-align:center;
+}
+
+.score{
+    font-size:40px;
+    color:#123c69;
+    font-weight:bold;
+}
+
+.exam-progress{
+    height:10px;
+    background:rgba(255,255,255,.25);
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0 25px;
+}
+
+.exam-progress-bar{
+    height:100%;
+    width:0%;
+    background:#ffd166;
+    transition:.3s;
+}
+
+.nav-buttons{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin:30px 0;
+}
+
+.nav-buttons a{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    background:#123c69;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.nav-buttons a:hover{
+    background:#1d6fa5;
+}
+
+footer{
+    background:#102f4e;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+.small{
+    color:#64748b;
+    font-size:14px;
+}
+
+@media(max-width:700px){
+    .hero h1{
+        font-size:29px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    header{
+        padding:15px;
+    }
+
+    .header-info{
+        display:none;
+    }
+
+    .section{
+        padding:20px;
+    }
+
+    .section-title{
+        font-size:22px;
+    }
+
+    .nav-buttons{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">مدار <span>أكاديمي</span></div>
+    <div class="header-info">الدراسات الاجتماعية | الصف الأول الإعدادي</div>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="badge">الوحدة الثانية – الدرس الأول</span>
+
+        <h1>عصر الدولة القديمة</h1>
+
+        <p>
+            عصر بناة الأهرام – الصف الأول الإعدادي – الترم الأول
+        </p>
+    </div>
+</section>
+
+<div class="container">
+
+<!-- الأهداف -->
+
+<section class="section">
+
+<h2 class="section-title">🎯 أهداف الدرس</h2>
+
+<div class="objectives">
+
+<div class="objective">
+<h3>1️⃣ التعرف</h3>
+<p>التعرف على عصر الدولة القديمة وأهم الأسرات التي حكمت مصر خلاله.</p>
+</div>
+
+<div class="objective">
+<h3>2️⃣ التفسير</h3>
+<p>تفسير تسمية عصر الدولة القديمة بعصر بناة الأهرام.</p>
+</div>
+
+<div class="objective">
+<h3>3️⃣ التمييز</h3>
+<p>التمييز بين مراحل تطور المقابر والأهرامات.</p>
+</div>
+
+<div class="objective">
+<h3>4️⃣ التقدير</h3>
+<p>تقدير براعة المصري القديم في العمارة والفنون.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- تمهيد -->
+
+<section class="section">
+
+<h2 class="section-title">📚 تمهيد</h2>
+
+<p>
+تُعد الحضارة المصرية القديمة من أعظم الحضارات التي عرفها التاريخ،
+وقد شهدت مصر خلال عصر الدولة القديمة تطورًا كبيرًا في العمارة والفنون
+والعلوم والتنظيم السياسي.
+</p>
+
+<div class="highlight">
+<strong>💡 سؤال للتفكير:</strong>
+<br>
+لماذا أطلق على عصر الدولة القديمة اسم <strong>عصر بناة الأهرام</strong>؟
+</div>
+
+</section>
+
+
+<!-- الدولة القديمة -->
+
+<section class="section">
+
+<h2 class="section-title">🏛️ أولًا: عصر الدولة القديمة</h2>
+
+<p>
+يُعد عصر الدولة القديمة من أهم عصور الحضارة المصرية القديمة،
+وقد امتد من الأسرة الثالثة حتى الأسرة السادسة.
+</p>
+
+<div class="info-box">
+<strong>📌 معلومة مهمة:</strong>
+<br>
+امتاز عصر الدولة القديمة بقوة الدولة واهتمام الملوك ببناء المقابر
+والأهرامات، ولذلك عُرف باسم <strong>عصر بناة الأهرام</strong>.
+</div>
+
+<h3>👑 أهم الأسرات:</h3>
+
+<ul>
+<li>الأسرة الثالثة</li>
+<li>الأسرة الرابعة</li>
+<li>الأسرة الخامسة</li>
+<li>الأسرة السادسة</li>
+</ul>
+
+</section>
+
+
+<!-- سؤال تفاعلي 1 -->
+
+<section class="section">
+
+<h2 class="section-title">🎮 تفاعل أثناء الدرس</h2>
+
+<div class="question-box">
+
+<div class="question-title">
+السؤال 1: بم تفسر تسمية عصر الدولة القديمة بعصر بناة الأهرام؟
+</div>
+
+<div class="answers">
+
+<button class="answer-btn"
+onclick="checkInteractive(this,true,'لأن ملوك الدولة القديمة اهتموا ببناء الأهرامات كمقابر ملكية ضخمة.')">
+لأن ملوك الدولة القديمة اهتموا ببناء الأهرامات.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة؛ السبب يرتبط باهتمام الملوك ببناء الأهرامات كمقابر ملكية.')">
+لأن مصر أصبحت دولة بحرية.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+لأن المصريين توقفوا عن الزراعة.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+لأن العاصمة انتقلت إلى الإسكندرية.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+</section>
+
+
+<!-- تطور المقابر -->
+
+<section class="section">
+
+<h2 class="section-title">🏗️ ثانيًا: تطور المقابر والأهرامات</h2>
+
+<p>
+تطورت المقابر المصرية القديمة تدريجيًا، وانتقل المصري القديم
+من المقابر البسيطة إلى بناء الأهرامات الضخمة.
+</p>
+
+<div class="timeline">
+
+<div class="timeline-card">
+<div class="number">1</div>
+<h3>المصطبة</h3>
+<p>من أقدم أشكال المقابر، وكانت ذات شكل مستطيل وسقف مستوٍ.</p>
+</div>
+
+<div class="timeline-card">
+<div class="number">2</div>
+<h3>هرم زوسر المدرج</h3>
+<p>بُني في سقارة، ويُعد من أبرز مراحل تطور بناء الأهرامات.</p>
+</div>
+
+<div class="timeline-card">
+<div class="number">3</div>
+<h3>الهرم المنحني</h3>
+<p>من أشهر أهرامات الملك سنفرو في دهشور.</p>
+</div>
+
+<div class="timeline-card">
+<div class="number">4</div>
+<h3>الهرم الكامل</h3>
+<p>وصل البناء إلى الشكل الهرمي الكامل، ومن أشهر أمثلته هرم خوفو.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- سؤال تفاعلي 2 -->
+
+<section class="section">
+
+<div class="question-box">
+
+<div class="question-title">
+السؤال 2: ما المقصود بالمصطبة؟
+</div>
+
+<div class="answers">
+
+<button class="answer-btn"
+onclick="checkInteractive(this,true,'المصطبة هي مقبرة ذات شكل مستطيل وسقف مستوٍ، وكانت من أقدم أشكال المقابر المصرية.')">
+مقبرة مستطيلة ذات سقف مستوٍ.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'هذه ليست المصطبة.')">
+معبد للإله رع.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'هذه ليست المصطبة.')">
+قصر ملكي.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'هذه ليست المصطبة.')">
+مدينة تجارية.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+</section>
+
+
+<!-- ملوك الدولة القديمة -->
+
+<section class="section">
+
+<h2 class="section-title">👑 ثالثًا: أشهر ملوك الدولة القديمة</h2>
+
+<div class="persons">
+
+<div class="person">
+
+<img src="https://images.unsplash.com/photo-1606741965326-cb1b0f8a8c42?auto=format&fit=crop&w=800&q=80">
+
+<div class="person-content">
+
+<h3>الملك زوسر</h3>
+
+<p>
+ارتبط اسمه بالهرم المدرج في سقارة،
+والذي يمثل مرحلة مهمة في تطور بناء الأهرامات.
+</p>
+
+</div>
+</div>
+
+
+<div class="person">
+
+<img src="https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=800&q=80">
+
+<div class="person-content">
+
+<h3>الملك سنفرو</h3>
+
+<p>
+من ملوك الأسرة الرابعة، وارتبط اسمه بتطور بناء الهرم،
+ومن أشهر آثاره الهرم المنحني والهرم الأحمر.
+</p>
+
+</div>
+</div>
+
+
+<div class="person">
+
+<img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=800&q=80">
+
+<div class="person-content">
+
+<h3>الملك خوفو</h3>
+
+<p>
+صاحب الهرم الأكبر بالجيزة، وهو من أشهر وأضخم آثار الحضارة المصرية القديمة.
+</p>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- سؤال تفاعلي 3 -->
+
+<section class="section">
+
+<div class="question-box">
+
+<div class="question-title">
+السؤال 3: دلل على صحة العبارة:
+<br>
+«شهد عصر الدولة القديمة تطورًا واضحًا في بناء المقابر».
+</div>
+
+<div class="answers">
+
+<button class="answer-btn"
+onclick="checkInteractive(this,true,'الدليل هو انتقال المصري القديم من المصطبة إلى الهرم المدرج ثم الهرم المنحني ثم الهرم الكامل.')">
+انتقل البناء من المصطبة إلى الهرم المدرج ثم المنحني ثم الهرم الكامل.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة لا توضح تطور المقابر.')">
+انتقلت العاصمة إلى الإسكندرية.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة لا تثبت العبارة.')">
+ازدهرت التجارة فقط.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+توقف المصري القديم عن بناء المقابر.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+</section>
+
+
+<!-- العمارة والفنون -->
+
+<section class="section">
+
+<h2 class="section-title">🎨 رابعًا: العمارة والفنون</h2>
+
+<p>
+لم يقتصر تقدم المصري القديم في الدولة القديمة على بناء الأهرامات،
+بل ظهر التقدم أيضًا في عدد من المجالات.
+</p>
+
+<div class="objectives">
+
+<div class="objective">
+<h3>🏗️ العمارة</h3>
+<p>ظهر التقدم في بناء الأهرامات والمقابر والمنشآت المختلفة.</p>
+</div>
+
+<div class="objective">
+<h3>🗿 النحت</h3>
+<p>تطور فن النحت وظهرت التماثيل بصورة أكثر دقة.</p>
+</div>
+
+<div class="objective">
+<h3>🎨 النقوش</h3>
+<p>استخدم المصري القديم النقوش والرسوم لتسجيل جوانب من الحياة.</p>
+</div>
+
+<div class="objective">
+<h3>📜 الأدب الديني</h3>
+<p>ظهرت نصوص دينية كُتبت على جدران بعض المقابر والأهرامات.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- سؤال تفاعلي 4 -->
+
+<section class="section">
+
+<div class="question-box">
+
+<div class="question-title">
+السؤال 4: ما النتائج المترتبة على تقدم المصري القديم في فن العمارة؟
+</div>
+
+<div class="answers">
+
+<button class="answer-btn"
+onclick="checkInteractive(this,true,'أدى ذلك إلى بناء منشآت ضخمة مثل الأهرامات والمقابر والمعابد، وأظهر براعة المصري القديم الهندسية.')">
+بناء منشآت ضخمة وإظهار براعة المصري القديم الهندسية.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+اختفاء العمارة تمامًا.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+توقف بناء المقابر.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+انهيار الدولة المصرية.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+</section>
+
+
+<!-- سؤال المقارنة -->
+
+<section class="section">
+
+<h2 class="section-title">⚖️ خامسًا: قارن</h2>
+
+<table style="width:100%;border-collapse:collapse;text-align:center">
+
+<tr style="background:#123c69;color:white">
+<th style="padding:12px">وجه المقارنة</th>
+<th style="padding:12px">المصطبة</th>
+<th style="padding:12px">الهرم</th>
+</tr>
+
+<tr>
+<td style="padding:12px;border:1px solid #ddd">الشكل</td>
+<td style="padding:12px;border:1px solid #ddd">مستطيل وسقف مستوٍ</td>
+<td style="padding:12px;border:1px solid #ddd">شكل هرمي</td>
+</tr>
+
+<tr>
+<td style="padding:12px;border:1px solid #ddd">التطور</td>
+<td style="padding:12px;border:1px solid #ddd">مرحلة مبكرة</td>
+<td style="padding:12px;border:1px solid #ddd">مرحلة متطورة</td>
+</tr>
+
+<tr>
+<td style="padding:12px;border:1px solid #ddd">الهدف</td>
+<td style="padding:12px;border:1px solid #ddd">مقبرة</td>
+<td style="padding:12px;border:1px solid #ddd">مقبرة ملكية ضخمة</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<!-- سؤال تفاعلي 5 -->
+
+<section class="section">
+
+<div class="question-box">
+
+<div class="question-title">
+السؤال 5: ما المقصود بعصر بناة الأهرام؟
+</div>
+
+<div class="answers">
+
+<button class="answer-btn"
+onclick="checkInteractive(this,true,'هو اسم أُطلق على عصر الدولة القديمة بسبب اهتمام ملوكها ببناء الأهرامات.')">
+العصر الذي اهتم فيه ملوك الدولة القديمة ببناء الأهرامات.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+عصر بناء المعابد الإسلامية.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+عصر الفتح العربي لمصر.
+</button>
+
+<button class="answer-btn"
+onclick="checkInteractive(this,false,'الإجابة غير صحيحة.')">
+عصر الدولة الحديثة فقط.
+</button>
+
+</div>
+
+<div class="feedback"></div>
+
+</div>
+
+</section>
+
+
+<!-- خلاصة -->
+
+<section class="section">
+
+<h2 class="section-title">📝 خلاصة الدرس</h2>
+
+<ul>
+<li>امتد عصر الدولة القديمة من الأسرة الثالثة حتى الأسرة السادسة.</li>
+<li>عُرف عصر الدولة القديمة باسم عصر بناة الأهرام.</li>
+<li>بدأ تطور المقابر من المصطبة.</li>
+<li>ظهر الهرم المدرج في عهد الملك زوسر.</li>
+<li>ارتبط الملك سنفرو بتطور بناء الأهرامات.</li>
+<li>بنى الملك خوفو الهرم الأكبر بالجيزة.</li>
+<li>تطور فن العمارة والنحت والنقوش والأدب الديني.</li>
+</ul>
+
+</section>
+
+
+<!-- بنك أسئلة -->
+
+<section class="section">
+
+<h2 class="section-title">📌 أسئلة مراجعة مهمة</h2>
+
+<div class="highlight">
+<strong>بم تفسر؟</strong>
+<br>
+تسمية عصر الدولة القديمة بعصر بناة الأهرام؟
+<br><br>
+<strong>الإجابة:</strong>
+لاشتهار ملوك الدولة القديمة ببناء الأهرامات كمقابر ملكية.
+</div>
+
+<div class="highlight">
+<strong>دلل على صحة العبارة:</strong>
+<br>
+تطور بناء المقابر في عصر الدولة القديمة.
+<br><br>
+<strong>الإجابة:</strong>
+انتقل المصري القديم من المصطبة إلى الهرم المدرج ثم الهرم المنحني ثم الهرم الكامل.
+</div>
+
+<div class="highlight">
+<strong>ما المقصود بـ:</strong>
+<br>
+عصر بناة الأهرام؟
+<br><br>
+<strong>الإجابة:</strong>
+هو عصر الدولة القديمة الذي اشتهر ببناء الأهرامات.
+</div>
+
+<div class="highlight">
+<strong>ما النتائج المترتبة على:</strong>
+<br>
+تقدم المصري القديم في مجال العمارة؟
+<br><br>
+<strong>الإجابة:</strong>
+بناء الأهرامات والمقابر والمنشآت الضخمة وإظهار براعة المصري القديم الهندسية.
+</div>
+
+</section>
+
+
+<!-- الاختبار -->
+
+<section class="section exam">
+
+<h2 class="section-title">🧠 اختبار نهاية الدرس</h2>
+
+<p>
+أجب عن الأسئلة العشرة ثم اضغط على «تصحيح الاختبار».
+</p>
+
+<div class="exam-progress">
+<div class="exam-progress-bar" id="progressBar"></div>
+</div>
+
+
+<!-- Q1 -->
+
+<div class="exam-question">
+<h3>1) بم تفسر تسمية عصر الدولة القديمة بعصر بناة الأهرام؟</h3>
+
+<label class="exam-option">
+<input type="radio" name="q1" value="a">
+للاهتمام ببناء الأهرامات
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q1" value="b">
+للاهتمام بالتجارة فقط
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q1" value="c">
+لانتقال العاصمة إلى الإسكندرية
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q1" value="d">
+لاختفاء المقابر
+</label>
+</div>
+
+
+<!-- Q2 -->
+
+<div class="exam-question">
+<h3>2) امتد عصر الدولة القديمة من الأسرة:</h3>
+
+<label class="exam-option">
+<input type="radio" name="q2" value="a">
+الأولى إلى الثانية
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q2" value="b">
+الثالثة إلى السادسة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q2" value="c">
+السابعة إلى العاشرة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q2" value="d">
+الثامنة عشرة إلى العشرين
+</label>
+</div>
+
+
+<!-- Q3 -->
+
+<div class="exam-question">
+<h3>3) ما المقصود بالمصطبة؟</h3>
+
+<label class="exam-option">
+<input type="radio" name="q3" value="a">
+مقبرة مستطيلة ذات سقف مستوٍ
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q3" value="b">
+معبد
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q3" value="c">
+قصر ملكي
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q3" value="d">
+مدينة
+</label>
+</div>
+
+
+<!-- Q4 -->
+
+<div class="exam-question">
+<h3>4) ارتبط الهرم المدرج بالملك:</h3>
+
+<label class="exam-option">
+<input type="radio" name="q4" value="a">
+خوفو
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q4" value="b">
+زوسر
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q4" value="c">
+سنوسرت
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q4" value="d">
+رمسيس الثاني
+</label>
+</div>
+
+
+<!-- Q5 -->
+
+<div class="exam-question">
+<h3>5) دلل على صحة العبارة: تطور بناء المقابر في عصر الدولة القديمة.</h3>
+
+<label class="exam-option">
+<input type="radio" name="q5" value="a">
+من المصطبة إلى الأهرامات
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q5" value="b">
+من القصور إلى المعابد
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q5" value="c">
+من المدن إلى القرى
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q5" value="d">
+من المعابد إلى الأسواق
+</label>
+</div>
+
+
+<!-- Q6 -->
+
+<div class="exam-question">
+<h3>6) صاحب الهرم الأكبر بالجيزة هو الملك:</h3>
+
+<label class="exam-option">
+<input type="radio" name="q6" value="a">
+زوسر
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q6" value="b">
+سنفرو
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q6" value="c">
+خوفو
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q6" value="d">
+أحمس
+</label>
+</div>
+
+
+<!-- Q7 -->
+
+<div class="exam-question">
+<h3>7) ما النتائج المترتبة على تقدم المصري القديم في العمارة؟</h3>
+
+<label class="exam-option">
+<input type="radio" name="q7" value="a">
+بناء منشآت ضخمة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q7" value="b">
+توقف البناء
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q7" value="c">
+اختفاء الأهرامات
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q7" value="d">
+انهيار الدولة
+</label>
+</div>
+
+
+<!-- Q8 -->
+
+<div class="exam-question">
+<h3>8) من أشهر ملوك الأسرة الرابعة:</h3>
+
+<label class="exam-option">
+<input type="radio" name="q8" value="a">
+خوفو
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q8" value="b">
+زوسر
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q8" value="c">
+أحمس
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q8" value="d">
+توت عنخ آمون
+</label>
+</div>
+
+
+<!-- Q9 -->
+
+<div class="exam-question">
+<h3>9) ارتبط الملك سنفرو بشكل خاص بتطور:</h3>
+
+<label class="exam-option">
+<input type="radio" name="q9" value="a">
+بناء الأهرامات
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q9" value="b">
+بناء السفن الحديثة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q9" value="c">
+الطباعة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q9" value="d">
+السكك الحديدية
+</label>
+</div>
+
+
+<!-- Q10 -->
+
+<div class="exam-question">
+<h3>10) ما المقصود بعصر بناة الأهرام؟</h3>
+
+<label class="exam-option">
+<input type="radio" name="q10" value="a">
+عصر الدولة القديمة
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q10" value="b">
+عصر الدولة الحديثة فقط
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q10" value="c">
+العصر اليوناني
+</label>
+
+<label class="exam-option">
+<input type="radio" name="q10" value="d">
+العصر الروماني
+</label>
+</div>
+
+
+<button class="submit-btn" onclick="submitExam()">
+✅ تصحيح الاختبار
+</button>
+
+<div class="result" id="result">
+
+<div class="score" id="score"></div>
+
+<h2 id="evaluation"></h2>
+
+<p id="message"></p>
+
+<button class="retry-btn" onclick="retryExam()">
+🔄 إعادة الاختبار
+</button>
+
+</div>
+
+</section>
+
+
+<!-- التنقل -->
+
+<div class="nav-buttons">
+
+<a href="lesson3.html">⬅️ الدرس السابق</a>
+
+<a href="index.html">🏠 الرئيسية</a>
+
+<a href="lesson5.html">الدرس التالي ➡️</a>
+
+</div>
+
+</div>
+
+
+<footer>
+
+<p><strong>مدار أكاديمي</strong></p>
+
+<p>
+الدراسات الاجتماعية – الصف الأول الإعدادي
+</p>
+
+<p class="small">
+© 2026 جميع الحقوق محفوظة
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   الأسئلة التفاعلية
+========================= */
+
+function checkInteractive(button,isCorrect,message){
+
+    const box = button.closest(".question-box");
+    const buttons = box.querySelectorAll(".answer-btn");
+    const feedback = box.querySelector(".feedback");
+
+    buttons.forEach(btn=>{
+        btn.disabled = true;
+    });
+
+    if(isCorrect){
+
+        button.classList.add("correct");
+
+        feedback.className = "feedback show good";
+        feedback.innerHTML = "✅ إجابة صحيحة!<br>" + message;
+
+    }else{
+
+        button.classList.add("wrong");
+
+        feedback.className = "feedback show bad";
+        feedback.innerHTML = "❌ إجابة غير صحيحة.<br>" + message;
+
+        buttons.forEach(btn=>{
+
+            const onclickText = btn.getAttribute("onclick") || "";
+
+            if(onclickText.includes("true")){
+                btn.classList.add("correct");
+            }
+
+        });
+
+    }
+
+}
+
+
+/* =========================
+   الاختبار
+========================= */
+
+const correctAnswers = {
+
+    q1:"a",
+    q2:"b",
+    q3:"a",
+    q4:"b",
+    q5:"a",
+    q6:"c",
+    q7:"a",
+    q8:"a",
+    q9:"a",
+    q10:"a"
+
+};
+
+
+function updateProgress(){
+
+    let answered = 0;
+
+    for(let i=1;i<=10;i++){
+
+        const answer = document.querySelector(
+            'input[name="q'+i+'"]:checked'
+        );
+
+        if(answer){
+            answered++;
+        }
+
+    }
+
+    document.getElementById("progressBar").style.width =
+        (answered / 10 * 100) + "%";
+}
+
+
+document.querySelectorAll(".exam-option input").forEach(input=>{
+
+    input.addEventListener("change",updateProgress);
+
+});
+
+
+function submitExam(){
+
+    let unanswered = [];
+
+    for(let i=1;i<=10;i++){
+
+        const answer = document.querySelector(
+            'input[name="q'+i+'"]:checked'
+        );
+
+        if(!answer){
+            unanswered.push(i);
+        }
+
+    }
+
+    if(unanswered.length > 0){
+
+        alert(
+            "⚠️ من فضلك أجب عن جميع الأسئلة أولًا.\n\n" +
+            "الأسئلة التي لم تتم الإجابة عنها: " +
+            unanswered.join(" - ")
+        );
+
+        return;
+    }
+
+
+    let scoreValue = 0;
+
+
+    for(let i=1;i<=10;i++){
+
+        const answer = document.querySelector(
+            'input[name="q'+i+'"]:checked'
+        );
+
+        if(answer.value === correctAnswers["q"+i]){
+            scoreValue++;
+        }
+
+    }
+
+
+    const score = document.getElementById("score");
+    const evaluation = document.getElementById("evaluation");
+    const message = document.getElementById("message");
+    const result = document.getElementById("result");
+
+
+    score.textContent = scoreValue + " / 10";
+
+
+    if(scoreValue >= 9){
+
+        evaluation.textContent = "🏆 ممتاز جدًا";
+
+        message.textContent =
+        "أداء رائع! أنت متمكن من الدرس بشكل ممتاز.";
+
+    }else if(scoreValue >= 7){
+
+        evaluation.textContent = "🌟 جيد جدًا";
+
+        message.textContent =
+        "مستوى ممتاز، راجع بعض النقاط البسيطة وستصل للدرجة النهائية.";
+
+    }else if(scoreValue >= 5){
+
+        evaluation.textContent = "👍 جيد";
+
+        message.textContent =
+        "مستوى جيد، لكن يُفضل مراجعة الدرس وحل الأسئلة مرة أخرى.";
+
+    }else{
+
+        evaluation.textContent = "📚 يحتاج مراجعة";
+
+        message.textContent =
+        "لا تقلق، راجع الدرس مرة أخرى ثم أعد الاختبار.";
+
+    }
+
+
+    result.style.display = "block";
+
+    result.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+function retryExam(){
+
+    document.querySelectorAll(".exam-question input").forEach(input=>{
+        input.checked = false;
+    });
+
+    document.getElementById("result").style.display = "none";
+
+    document.getElementById("progressBar").style.width = "0%";
+
+    window.scrollTo({
+        top:document.querySelector(".exam").offsetTop,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+  </html>
