@@ -1,1032 +1,1096 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>دروس الصف الأول الإعدادي | منصة مدار</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Tahoma, Arial, sans-serif;
-      background: #f4f7fb;
-      color: #172033;
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
-
-    header {
-      background: linear-gradient(135deg, #071d49, #0b4b96);
-      color: white;
-      padding: 15px 5%;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 5px 20px rgba(0,0,0,.15);
-    }
-
-    .header {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #ffd447;
-    }
-
-    .back {
-      background: rgba(255,255,255,.12);
-      padding: 8px 15px;
-      border-radius: 12px;
-      font-size: 14px;
-    }
-
-    /* HERO */
-
-    .hero {
-      max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .hero-box {
-      background: linear-gradient(135deg, #0b3d88, #1670c9);
-      color: white;
-      border-radius: 28px;
-      padding: 45px 40px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(10,55,120,.2);
-    }
-
-    .hero-box::after {
-      content: "📚";
-      position: absolute;
-      left: 50px;
-      bottom: -25px;
-      font-size: 150px;
-      opacity: .08;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255,255,255,.14);
-      padding: 6px 15px;
-      border-radius: 30px;
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .hero h1 {
-      font-size: 40px;
-      margin-bottom: 8px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero p {
-      font-size: 17px;
-      opacity: .92;
-      max-width: 700px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .year {
-      display: inline-block;
-      margin-top: 18px;
-      background: #ffd447;
-      color: #172033;
-      padding: 7px 17px;
-      border-radius: 10px;
-      font-weight: bold;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* PAGE TITLE */
-
-    .section {
-      max-width: 1200px;
-      margin: 45px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .section-title h2 {
-      color: #092d68;
-      font-size: 29px;
-      margin-bottom: 5px;
-    }
-
-    .section-title p {
-      color: #6b7585;
-    }
-
-    /* UNIT */
-
-    .unit {
-      background: white;
-      border-radius: 22px;
-      margin-bottom: 30px;
-      overflow: hidden;
-      border: 1px solid #e5eaf2;
-      box-shadow: 0 8px 25px rgba(20,40,80,.07);
-    }
-
-    .unit-header {
-      background: linear-gradient(135deg, #092d68, #0c579f);
-      color: white;
-      padding: 20px 25px;
-    }
-
-    .unit-number {
-      font-size: 13px;
-      opacity: .8;
-      margin-bottom: 3px;
-    }
-
-    .unit-header h2 {
-      font-size: 23px;
-    }
-
-    .lessons {
-      padding: 20px;
-      display: grid;
-      gap: 14px;
-    }
-
-    /* LESSON */
-
-    .lesson {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 17px;
-      border-radius: 16px;
-      background: #f7f9fc;
-      border: 1px solid #e9edf4;
-      transition: .3s;
-    }
-
-    .lesson:hover {
-      transform: translateX(-5px);
-      border-color: #b9cee8;
-      box-shadow: 0 7px 20px rgba(20,50,100,.08);
-    }
-
-    .lesson-icon {
-      width: 55px;
-      height: 55px;
-      min-width: 55px;
-      border-radius: 15px;
-      background: #e9f3ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 27px;
-    }
-
-    .lesson-info {
-      flex: 1;
-    }
-
-    .lesson-info h3 {
-      color: #092d68;
-      font-size: 17px;
-      margin-bottom: 3px;
-    }
-
-    .lesson-info p {
-      color: #737d8c;
-      font-size: 13px;
-    }
-
-    .lesson-btn {
-      background: #0b438b;
-      color: white;
-      padding: 8px 14px;
-      border-radius: 9px;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    /* REVIEW */
-
-    .review {
-      background: #fff9e6;
-      border: 1px solid #f3df9a;
-    }
-
-    .review .lesson-icon {
-      background: #fff0b8;
-    }
-
-    .review .lesson-btn {
-      background: #c58a00;
-    }
-
-    /* TERM 2 */
-
-    .term2 {
-      background: linear-gradient(135deg, #edf2f8, #f8fafc);
-      border: 2px dashed #c9d3e2;
-      border-radius: 22px;
-      padding: 35px 20px;
-      text-align: center;
-      margin-top: 45px;
-    }
-
-    .term2-icon {
-      font-size: 50px;
-      margin-bottom: 10px;
-    }
-
-    .term2 h2 {
-      color: #092d68;
-      margin-bottom: 5px;
-    }
-
-    .term2 p {
-      color: #727d8c;
-      font-size: 14px;
-    }
-
-    .coming {
-      display: inline-block;
-      margin-top: 15px;
-      background: #dce4ef;
-      color: #42536b;
-      padding: 7px 15px;
-      border-radius: 20px;
-      font-size: 13px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #061735;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
-      margin-top: 60px;
-      font-size: 14px;
-    }
-
-    footer span {
-      color: #ffd447;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 700px) {
-
-      .logo {
-        font-size: 24px;
-      }
-
-      .back {
-        font-size: 12px;
-        padding: 7px 10px;
-      }
-
-      .hero {
-        margin: 20px auto;
-      }
-
-      .hero-box {
-        padding: 30px 22px;
-        border-radius: 22px;
-      }
-
-      .hero h1 {
-        font-size: 29px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .section-title h2 {
-        font-size: 25px;
-      }
-
-      .unit-header {
-        padding: 17px;
-      }
-
-      .unit-header h2 {
-        font-size: 19px;
-      }
-
-      .lessons {
-        padding: 12px;
-      }
-
-      .lesson {
-        padding: 13px;
-      }
-
-      .lesson-info h3 {
-        font-size: 15px;
-      }
-
-      .lesson-info p {
-        font-size: 12px;
-      }
-
-      .lesson-btn {
-        padding: 7px 9px;
-        font-size: 11px;
-      }
-
-      .lesson-icon {
-        width: 45px;
-        height: 45px;
-        min-width: 45px;
-        font-size: 22px;
-      }
-    }
-
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>قارة إفريقيا | الموقع والكشوف الجغرافية | منصة مدار</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#f4f7fb;
+  color:#172033;
+  line-height:1.9;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+header{
+  background:#092b52;
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 3px 15px #0002;
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:900;
+}
+
+.logo span{
+  color:#36c9b5;
+}
+
+.nav-links{
+  display:flex;
+  gap:22px;
+  font-size:14px;
+}
+
+.nav-links a:hover{
+  color:#36c9b5;
+}
+
+.hero{
+  background:linear-gradient(135deg,#092b52,#145b8c);
+  color:white;
+  padding:55px 20px;
+}
+
+.hero-inner{
+  max-width:1200px;
+  margin:auto;
+}
+
+.badge{
+  display:inline-block;
+  background:#ffffff18;
+  border:1px solid #ffffff35;
+  padding:7px 14px;
+  border-radius:30px;
+  margin-bottom:15px;
+  font-size:13px;
+}
+
+.hero h1{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.hero p{
+  max-width:750px;
+  color:#e6f2ff;
+}
+
+.progress{
+  margin-top:25px;
+  max-width:550px;
+}
+
+.progress-text{
+  font-size:13px;
+  margin-bottom:7px;
+}
+
+.progress-bar{
+  height:8px;
+  background:#ffffff25;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar div{
+  width:25%;
+  height:100%;
+  background:#36c9b5;
+}
+
+.layout{
+  max-width:1200px;
+  margin:30px auto;
+  padding:0 20px;
+  display:grid;
+  grid-template-columns:260px 1fr;
+  gap:25px;
+}
+
+.sidebar{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  height:max-content;
+  position:sticky;
+  top:90px;
+  box-shadow:0 5px 20px #0000000a;
+}
+
+.sidebar h3{
+  color:#092b52;
+  margin-bottom:15px;
+}
+
+.sidebar a{
+  display:block;
+  padding:9px 10px;
+  border-radius:9px;
+  margin:4px 0;
+  font-size:14px;
+}
+
+.sidebar a:hover{
+  background:#e9f8f6;
+  color:#087f72;
+}
+
+.content{
+  min-width:0;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  padding:28px;
+  margin-bottom:22px;
+  box-shadow:0 5px 22px #00000009;
+}
+
+.card h2{
+  color:#092b52;
+  font-size:25px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  color:#145b8c;
+  margin:20px 0 8px;
+}
+
+.highlight{
+  background:#eaf8f6;
+  border-right:5px solid #36b9aa;
+  padding:15px 18px;
+  border-radius:12px;
+  margin:18px 0;
+}
+
+.fact-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.fact{
+  background:#f6f9fc;
+  border:1px solid #e4ebf2;
+  padding:18px;
+  border-radius:15px;
+  text-align:center;
+}
+
+.fact strong{
+  display:block;
+  font-size:22px;
+  color:#092b52;
+}
+
+.map-box{
+  margin:22px 0;
+  background:#f7f9fc;
+  border:2px dashed #cbd8e5;
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+}
+
+.map-placeholder{
+  min-height:260px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#738196;
+  background:#eef3f8;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+.map-caption{
+  font-size:13px;
+  color:#68778a;
+  margin-top:10px;
+}
+
+.question{
+  background:#f8fafc;
+  border:1px solid #e3eaf1;
+  border-radius:15px;
+  padding:18px;
+  margin:15px 0;
+}
+
+.question-title{
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+.options{
+  display:grid;
+  gap:8px;
+}
+
+.option{
+  border:1px solid #d8e1ea;
+  background:white;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.option:hover{
+  background:#eef8f7;
+}
+
+.answer{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  background:#eaf8f6;
+  border-radius:9px;
+  color:#075e55;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+}
+
+.show-answer{
+  background:#092b52;
+  color:white;
+  padding:9px 15px;
+  border-radius:9px;
+  margin-top:10px;
+}
+
+.timeline{
+  border-right:3px solid #36b9b0;
+  padding-right:20px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:25px;
+}
+
+.timeline-item:before{
+  content:"";
+  position:absolute;
+  right:-29px;
+  top:8px;
+  width:14px;
+  height:14px;
+  border-radius:50%;
+  background:#36b9b0;
+  border:3px solid white;
+  box-shadow:0 0 0 2px #36b9b055;
+}
+
+.timeline-item h3{
+  margin-top:0;
+}
+
+.quiz{
+  background:linear-gradient(135deg,#092b52,#124c76);
+  color:white;
+}
+
+.quiz h2{
+  color:white;
+}
+
+.quiz-question{
+  background:#ffffff10;
+  border:1px solid #ffffff20;
+  padding:18px;
+  border-radius:15px;
+  margin:15px 0;
+}
+
+.quiz .option{
+  background:#ffffff0d;
+  color:white;
+  border-color:#ffffff25;
+}
+
+.quiz .option:hover{
+  background:#ffffff1c;
+}
+
+#score{
+  display:none;
+  margin-top:20px;
+  padding:18px;
+  background:#ffffff15;
+  border-radius:12px;
+  text-align:center;
+  font-size:20px;
+}
+
+.navigation{
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  margin:25px 0;
+}
+
+.nav-btn{
+  padding:13px 20px;
+  border-radius:12px;
+  background:#092b52;
+  color:white;
+}
+
+.nav-btn.next{
+  background:#36b9aa;
+}
+
+footer{
+  background:#071e38;
+  color:#cbd7e5;
+  text-align:center;
+  padding:30px 20px;
+  margin-top:40px;
+}
+
+@media(max-width:850px){
+  .layout{
+    grid-template-columns:1fr;
+  }
+
+  .sidebar{
+    position:static;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:29px;
+  }
+
+  .fact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:20px;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-
-  <!-- HEADER -->
-
-  <header>
-
-    <div class="header">
-
-      <div class="logo">
-        مَدَار<span>•</span>
-      </div>
-
-      <a href="prep1.html" class="back">
-        ← الصف الأول الإعدادي
-      </a>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div class="hero-box">
-
-      <div class="badge">
-        📚 الدراسات الاجتماعية
-      </div>
-
-      <h1>
-        دروس الصف الأول الإعدادي
-      </h1>
-
-      <p>
-        اختر الوحدة والدرس الذي تريد دراسته،
-        وتعلم بطريقة منظمة ومبسطة مع منصة مَدَار.
-      </p>
-
-      <div class="year">
-        العام الدراسي 2026 / 2027
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- LESSONS -->
-
-  <section class="section">
-
-    <div class="section-title">
-
-      <h2>
-        📖 محتوى الفصل الدراسي الأول
-      </h2>
-
-      <p>
-        اختر الوحدة ثم ابدأ الدرس
-      </p>
-
-    </div>
-
-
-
-    <!-- UNIT 1 -->
-
-    <div class="unit">
-
-      <div class="unit-header">
-
-        <div class="unit-number">
-          الوحدة الأولى
-        </div>
-
-        <h2>
-          الملامح الطبيعية لقارة إفريقيا وحضاراتها القديمة
-        </h2>
-
-      </div>
-
-
-      <div class="lessons">
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🌍
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الأول: قارة إفريقيا (الموقع والكشوف الجغرافية)
-            </h3>
-
-            <p>
-              الموقع الجغرافي والفلكي وأهمية موقع قارة إفريقيا والكشوف الجغرافية.
-            </p>
-
-          </div>
-
-          <a href="lesson1.html" class="lesson-btn">
-            ابدأ الدرس
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🗺️
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثاني: مظاهر سطح قارة إفريقيا
-            </h3>
-
-            <p>
-              تعرف على أهم مظاهر السطح في قارة إفريقيا.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🌊
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثالث: نهر النيل والحضارات القديمة في إفريقيا
-            </h3>
-
-            <p>
-              نهر النيل ودوره في نشأة الحضارات القديمة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson review">
-
-          <div class="lesson-icon">
-            📝
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              تقييم ختامي على الوحدة الأولى
-            </h3>
-
-            <p>
-              اختبر معلوماتك بعد الانتهاء من دروس الوحدة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- UNIT 2 -->
-
-    <div class="unit">
-
-      <div class="unit-header">
-
-        <div class="unit-number">
-          الوحدة الثانية
-        </div>
-
-        <h2>
-          الحضارة المصرية القديمة وعلاقتها بحضارات إفريقيا
-        </h2>
-
-      </div>
-
-
-      <div class="lessons">
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🏺
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الأول: عصر الدولة القديمة (عصر بناة الأهرام)
-            </h3>
-
-            <p>
-              تعرف على عصر الدولة القديمة وأهم إنجازاته.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            👑
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثاني: عصر الدولة الوسطى (عصر الرخاء الاقتصادي)
-            </h3>
-
-            <p>
-              أهم مظاهر الحضارة في عصر الدولة الوسطى.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            ⚔️
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثالث: عصر الدولة الحديثة (عصر المجد الحربي)
-            </h3>
-
-            <p>
-              مصر في عصر الدولة الحديثة وأبرز إنجازاتها.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson review">
-
-          <div class="lesson-icon">
-            📝
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              تقييم ختامي على الوحدة الثانية
-            </h3>
-
-            <p>
-              تقييم شامل على دروس الوحدة الثانية.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- UNIT 3 -->
-
-    <div class="unit">
-
-      <div class="unit-header">
-
-        <div class="unit-number">
-          الوحدة الثالثة
-        </div>
-
-        <h2>
-          النظم البيئية في قارة إفريقيا
-        </h2>
-
-      </div>
-
-
-      <div class="lessons">
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🌳
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الأول: نظم الغابات في إفريقيا
-            </h3>
-
-            <p>
-              الغابات المدارية المطيرة وغابات البحر المتوسط.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🌾
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثاني: نظم الحشائش والصحاري الحارة في إفريقيا
-            </h3>
-
-            <p>
-              الحشائش الحارة والمعتدلة والصحاري الحارة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🐟
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثالث: النظم البيئية المائية في إفريقيا
-            </h3>
-
-            <p>
-              أهم النظم البيئية المائية في القارة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson review">
-
-          <div class="lesson-icon">
-            📝
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              تقييم ختامي على الوحدة الثالثة
-            </h3>
-
-            <p>
-              اختبر نفسك في محتوى الوحدة الثالثة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- UNIT 4 -->
-
-    <div class="unit">
-
-      <div class="unit-header">
-
-        <div class="unit-number">
-          الوحدة الرابعة
-        </div>
-
-        <h2>
-          علاقة مصر بإفريقيا خلال العصور الوسطى
-        </h2>
-
-      </div>
-
-
-      <div class="lessons">
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            ☪️
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الأول: انتشار الإسلام في إفريقيا
-            </h3>
-
-            <p>
-              انتشار الإسلام وأثره الحضاري في القارة الإفريقية.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson">
-
-          <div class="lesson-icon">
-            🇪🇬
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              الدرس الثاني: دور مصر الحضاري في قارة إفريقيا
-            </h3>
-
-            <p>
-              دور مصر وعلاقاتها الحضارية مع قارة إفريقيا.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson review">
-
-          <div class="lesson-icon">
-            📝
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              تقييم ختامي على الوحدة الرابعة
-            </h3>
-
-            <p>
-              تقييم شامل على الوحدة الرابعة.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-
-
-        <div class="lesson review">
-
-          <div class="lesson-icon">
-            🏆
-          </div>
-
-          <div class="lesson-info">
-
-            <h3>
-              المراجعة العامة على الفصل الدراسي الأول
-            </h3>
-
-            <p>
-              مراجعة شاملة قبل الاختبار.
-            </p>
-
-          </div>
-
-          <a href="#" class="lesson-btn"
-             onclick="comingSoon(); return false;">
-            قريبًا
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- TERM 2 -->
-
-    <div class="term2">
-
-      <div class="term2-icon">
-        🚀
-      </div>
-
-      <h2>
-        الفصل الدراسي الثاني
-      </h2>
-
-      <p>
-        المحتوى الخاص بالفصل الدراسي الثاني سيتم إضافته قريبًا.
-      </p>
-
-      <div class="coming">
-        🔒 المحتوى قيد التجهيز
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <!-- FOOTER -->
-
-  <footer>
+<header>
+  <div class="nav">
+    <div class="logo">مَ<span>د</span>ار</div>
+
+    <nav class="nav-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="social.html">الدراسات الاجتماعية</a>
+      <a href="prep1.html">أولى إعدادي</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+
+    <span class="badge">الدراسات الاجتماعية • الصف الأول الإعدادي</span>
+
+    <h1>قارة إفريقيا</h1>
 
     <p>
-      © 2026 <span>مَدَار</span> — منصة تعليمية
+      الموقع والكشوف الجغرافية
     </p>
 
-    <p>
-      الأستاذ عمر أحمد
-    </p>
+    <div class="progress">
+      <div class="progress-text">تقدمك في الدرس</div>
+      <div class="progress-bar">
+        <div></div>
+      </div>
+    </div>
 
-  </footer>
+  </div>
+</section>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+  <h3>محتويات الدرس</h3>
+
+  <a href="#objectives">🎯 أهداف الدرس</a>
+  <a href="#intro">🌍 تمهيد</a>
+  <a href="#geo">🗺️ الموقع الجغرافي</a>
+  <a href="#astro">📐 الموقع الفلكي</a>
+  <a href="#importance">⭐ أهمية الموقع</a>
+  <a href="#political">🏳️ الخريطة السياسية</a>
+  <a href="#egypt">🇪🇬 موقع مصر</a>
+  <a href="#exploration">🧭 الكشوف الجغرافية</a>
+  <a href="#activities">✏️ أنشطة وتدريبات</a>
+  <a href="#quiz">🏆 اختبار الدرس</a>
+
+</aside>
+
+<main class="content">
+
+<section class="card" id="objectives">
+
+<h2>🎯 أهداف الدرس</h2>
+
+<p>بعد دراسة هذا الدرس، يُتوقع أن تكون قادرًا على:</p>
+
+<ul>
+<li>تحديد الموقع الجغرافي لقارة إفريقيا.</li>
+<li>تحديد الموقع الفلكي للقارة باستخدام دوائر العرض وخطوط الطول.</li>
+<li>تفسير أهمية موقع إفريقيا.</li>
+<li>التعرف على الخريطة السياسية للقارة وموقع مصر.</li>
+<li>تتبع أهم مراحل استكشاف قارة إفريقيا.</li>
+<li>توضيح دور المصريين القدماء في استكشاف أجزاء من القارة.</li>
+</ul>
+
+</section>
 
 
+<section class="card" id="intro">
 
-  <script>
+<h2>🌍 تمهيد</h2>
 
-    function comingSoon() {
-      alert("🚀 هذا الدرس سيتم إضافته قريبًا على منصة مَدَار.");
+<p>
+تُعد إفريقيا إحدى قارات العالم القديم، وتتميز بموقع جغرافي مهم جعلها تتوسط قارات العالم تقريبًا، كما تتصل بعدد من البحار والمحيطات والممرات المائية المهمة.
+</p>
+
+<div class="highlight">
+<strong>فكر:</strong>
+أين تقع إفريقيا؟ وما الذي جعل موقعها مهمًا عبر التاريخ؟
+</div>
+
+</section>
+
+
+<section class="card" id="geo">
+
+<h2>🗺️ أولًا: الموقع الجغرافي لقارة إفريقيا</h2>
+
+<p>
+تقع قارة إفريقيا في موقع متميز بالقرب من منتصف قارات العالم، وتفصلها مسطحات مائية مهمة عن عدد من القارات الأخرى.
+</p>
+
+<div class="fact-grid">
+
+<div class="fact">
+<strong>الشمال</strong>
+البحر المتوسط
+</div>
+
+<div class="fact">
+<strong>الشرق</strong>
+البحر الأحمر والمحيط الهندي
+</div>
+
+<div class="fact">
+<strong>الغرب</strong>
+المحيط الأطلنطي
+</div>
+
+</div>
+
+<h3>القارات القريبة من إفريقيا</h3>
+
+<p>
+يفصل البحر المتوسط إفريقيا عن أوروبا، بينما يفصل البحر الأحمر والمحيط الهندي بينها وبين آسيا، ويحدها المحيط الأطلنطي من الغرب.
+</p>
+
+<div class="map-box">
+
+<div class="map-placeholder">
+📍 مكان خريطة موقع إفريقيا بين قارات العالم
+</div>
+
+<div class="map-caption">
+الخريطة (1) — ستُضاف هنا الخريطة الأصلية الخاصة بالدرس
+</div>
+
+</div>
+
+<div class="question">
+
+<div class="question-title">
+❓ بم تفسر أهمية موقع قارة إفريقيا؟
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a1')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a1">
+لأنها تتوسط قارات العالم، وتشرف على بحار ومحيطات وممرات مائية مهمة، مما منحها أهمية استراتيجية واقتصادية وحضارية.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="astro">
+
+<h2>📐 ثانيًا: الموقع الفلكي لقارة إفريقيا</h2>
+
+<p>
+يقصد بالموقع الفلكي تحديد موقع القارة بالنسبة إلى دوائر العرض وخطوط الطول.
+</p>
+
+<div class="highlight">
+تقع إفريقيا على جانبي خط الاستواء، لذلك تمتد أراضيها في نصفي الكرة الشمالي والجنوبي.
+</div>
+
+<h3>دوائر العرض المهمة</h3>
+
+<ul>
+<li>خط الاستواء يمر بوسط القارة تقريبًا.</li>
+<li>يمر مدار السرطان شمال القارة.</li>
+<li>يمر مدار الجدي جنوب القارة.</li>
+</ul>
+
+<h3>خطوط الطول</h3>
+
+<p>
+يمر خط جرينتش في الجزء الغربي من القارة، وتمتد إفريقيا شرقًا وغربًا عن هذا الخط.
+</p>
+
+<div class="map-box">
+
+<div class="map-placeholder">
+📐 مكان خريطة الموقع الفلكي لإفريقيا
+</div>
+
+<div class="map-caption">
+تُضاف هنا خريطة الموقع الفلكي عند رفع ملف الخريطة.
+</div>
+
+</div>
+
+<div class="question">
+
+<div class="question-title">
+❓ ماذا يترتب على مرور خط الاستواء بقارة إفريقيا؟
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a2')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a2">
+يمتد جزء من قارة إفريقيا في نصف الكرة الشمالي وجزء آخر في نصف الكرة الجنوبي.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="importance">
+
+<h2>⭐ ثالثًا: أهمية موقع قارة إفريقيا</h2>
+
+<h3>الأهمية الاستراتيجية</h3>
+
+<p>
+تطل إفريقيا على مسطحات مائية وممرات بحرية مهمة، وتقترب من طرق التجارة العالمية، مما يزيد من أهميتها الاستراتيجية.
+</p>
+
+<h3>الأهمية الاقتصادية</h3>
+
+<p>
+يساعد موقع القارة واتصالها بالبحار والمحيطات على حركة التجارة والنقل، كما تتمتع القارة بموارد طبيعية متنوعة.
+</p>
+
+<h3>الأهمية الحضارية</h3>
+
+<p>
+ساعد موقع إفريقيا على اتصالها بمناطق مختلفة من العالم، وارتبطت بها حضارات قديمة ومراكز حضارية مهمة.
+</p>
+
+<div class="question">
+
+<div class="question-title">
+❓ دلل على العبارة: «لقارة إفريقيا أهمية استراتيجية كبيرة».
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a3')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a3">
+لإشرافها على بحار ومحيطات وممرات مائية مهمة، وقربها من طرق التجارة والاتصال بين أجزاء العالم.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="political">
+
+<h2>🏳️ رابعًا: الخريطة السياسية لقارة إفريقيا</h2>
+
+<p>
+تتكون إفريقيا من عدد كبير من الدول، وتوضح الخريطة السياسية مواقع الدول وحدودها وعواصمها.
+</p>
+
+<div class="map-box">
+
+<div class="map-placeholder">
+🗺️ مكان الخريطة السياسية لإفريقيا
+</div>
+
+<div class="map-caption">
+الخريطة السياسية — ستُضاف هنا الخريطة المخصصة للطلاب.
+</div>
+
+</div>
+
+<div class="question">
+
+<div class="question-title">
+❓ ما المقصود بالخريطة السياسية؟
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a4')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a4">
+هي خريطة توضح الدول والحدود السياسية والعواصم وغيرها من الظواهر السياسية.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="egypt">
+
+<h2>🇪🇬 خامسًا: موقع مصر في قارة إفريقيا</h2>
+
+<p>
+تقع مصر في الجزء الشمالي الشرقي من قارة إفريقيا، ولها امتداد آسيوي يتمثل في شبه جزيرة سيناء.
+</p>
+
+<div class="highlight">
+<strong>تذكر:</strong>
+تُعد سيناء حلقة اتصال مهمة بين قارتي إفريقيا وآسيا.
+</div>
+
+<h3>لماذا تتميز مصر بموقع مهم؟</h3>
+
+<ul>
+<li>تقع في شمال شرق إفريقيا.</li>
+<li>تشرف على البحرين المتوسط والأحمر.</li>
+<li>ترتبط بقارة آسيا عبر شبه جزيرة سيناء.</li>
+<li>يمثل موقعها أهمية في التواصل بين إفريقيا وآسيا.</li>
+</ul>
+
+<div class="question">
+
+<div class="question-title">
+❓ علل: لشبه جزيرة سيناء أهمية حضارية وجغرافية.
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a5')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a5">
+لأنها تمثل حلقة اتصال بين قارتي إفريقيا وآسيا، وكانت عبر التاريخ طريقًا لحركة الأشخاص والأفكار والتجارة.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="exploration">
+
+<h2>🧭 سادسًا: الكشوف الجغرافية لقارة إفريقيا</h2>
+
+<p>
+لم تكن جميع مناطق إفريقيا معروفة للأوروبيين قديمًا، ولذلك تمت رحلات عديدة لاكتشاف أجزاء من القارة والتعرف على طرقها ومواردها.
+</p>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>المصريون القدماء</h3>
+
+<p>
+كان للمصريين القدماء دور مبكر في استكشاف أجزاء من إفريقيا، ومن أشهر الرحالة المصريين «حر-خوف» الذي قام بعدة رحلات نحو الجنوب.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>بعثة الملك نخاو</h3>
+
+<p>
+أُرسلت بعثة في عهد الملك نخاو بهدف الدوران حول قارة إفريقيا، وبدأت رحلتها من البحر الأحمر وعادت عبر مضيق جبل طارق.
+</p>
+
+</div>
+
+<div class="timeline-item">
+
+<h3>الكشوف الأوروبية</h3>
+
+<p>
+شهدت القارة لاحقًا رحلات استكشافية أوروبية هدفت إلى التعرف على سواحلها وطرقها ومناطقها الداخلية.
+</p>
+
+</div>
+
+</div>
+
+<div class="map-box">
+
+<div class="map-placeholder">
+🧭 مكان خريطة الكشوف الجغرافية
+</div>
+
+<div class="map-caption">
+تُضاف هنا خريطة الكشوف الجغرافية بعد رفع ملفها.
+</div>
+
+</div>
+
+<div class="question">
+
+<div class="question-title">
+❓ ما دور المصريين القدماء في استكشاف إفريقيا؟
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a6')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a6">
+قام المصريون القدماء برحلات نحو الجنوب لاكتشاف أجزاء من القارة، ومن أشهرهم حر-خوف، كما ارتبط بعهد الملك نخاو إرسال بعثة للدوران حول إفريقيا.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card" id="activities">
+
+<h2>✏️ تدريبات أثناء الدرس</h2>
+
+<div class="question">
+
+<div class="question-title">
+1) اختر الإجابة الصحيحة:
+تقع قارة إفريقيا بالنسبة لقارات العالم في موقع:
+</div>
+
+<div class="options">
+
+<div class="option" onclick="check(this,true)">
+أ) منعزل تمامًا عن القارات
+</div>
+
+<div class="option" onclick="check(this,false)">
+ب) متميز وقريب من وسط قارات العالم
+</div>
+
+<div class="option" onclick="check(this,false)">
+ج) أقصى شمال العالم
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+2) صح أم خطأ:
+يمر خط الاستواء بقارة إفريقيا.
+</div>
+
+<div class="options">
+
+<div class="option" onclick="check(this,true)">
+✓ صح
+</div>
+
+<div class="option" onclick="check(this,false)">
+✗ خطأ
+</div>
+
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+3) أكمل:
+يفصل البحر المتوسط قارة إفريقيا عن قارة ............
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a7')">
+إظهار الإجابة
+</button>
+
+<div class="answer" id="a7">
+أوروبا.
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+4) بم تفسر: اهتمام الدول الأوروبية بالكشوف الجغرافية في إفريقيا؟
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a8')">
+إظهار نموذج إجابة
+</button>
+
+<div class="answer" id="a8">
+للتعرف على طرق ومناطق جديدة، والوصول إلى الموارد والثروات، والسيطرة على مناطق ومواقع استراتيجية.
+</div>
+
+</div>
+
+
+<div class="question">
+
+<div class="question-title">
+5) دلل على أهمية موقع مصر بالنسبة لقارتي إفريقيا وآسيا.
+</div>
+
+<button class="show-answer" onclick="toggleAnswer('a9')">
+إظهار نموذج إجابة
+</button>
+
+<div class="answer" id="a9">
+تقع مصر في شمال شرق إفريقيا، وترتبط بآسيا من خلال شبه جزيرة سيناء، كما تشرف على البحر المتوسط والبحر الأحمر.
+</div>
+
+</div>
+
+</section>
+
+
+<section class="card quiz" id="quiz">
+
+<h2>🏆 اختبار نهاية الدرس</h2>
+
+<p>أجب عن الأسئلة التالية ثم اضغط «احسب النتيجة».</p>
+
+<div class="quiz-question">
+
+<strong>1. ما البحر الذي يفصل إفريقيا عن أوروبا؟</strong>
+
+<div class="option" onclick="answerQuiz(1,this,true)">البحر المتوسط</div>
+<div class="option" onclick="answerQuiz(1,this,false)">البحر الأحمر</div>
+<div class="option" onclick="answerQuiz(1,this,false)">بحر العرب</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>2. ما خط العرض الذي يمر تقريبًا بوسط إفريقيا؟</strong>
+
+<div class="option" onclick="answerQuiz(2,this,true)">خط الاستواء</div>
+<div class="option" onclick="answerQuiz(2,this,false)">مدار السرطان</div>
+<div class="option" onclick="answerQuiz(2,this,false)">مدار الجدي</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>3. أين تقع مصر بالنسبة لقارة إفريقيا؟</strong>
+
+<div class="option" onclick="answerQuiz(3,this,true)">الشمال الشرقي</div>
+<div class="option" onclick="answerQuiz(3,this,false)">الجنوب الغربي</div>
+<div class="option" onclick="answerQuiz(3,this,false)">وسط القارة</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>4. من الرحالة المصريين القدماء الذين قاموا برحلات نحو الجنوب؟</strong>
+
+<div class="option" onclick="answerQuiz(4,this,true)">حر-خوف</div>
+<div class="option" onclick="answerQuiz(4,this,false)">ابن بطوطة</div>
+<div class="option" onclick="answerQuiz(4,this,false)">هيرودوت</div>
+
+</div>
+
+
+<div class="quiz-question">
+
+<strong>5. أي مما يلي يوضح أهمية موقع إفريقيا؟</strong>
+
+<div class="option" onclick="answerQuiz(5,this,true)">الإشراف على بحار ومحيطات وممرات مهمة</div>
+<div class="option" onclick="answerQuiz(5,this,false)">ابتعادها عن طرق التجارة</div>
+<div class="option" onclick="answerQuiz(5,this,false)">عدم اتصالها بأي قارة</div>
+
+</div>
+
+<button class="show-answer" onclick="calculateScore()">
+احسب النتيجة
+</button>
+
+<div id="score"></div>
+
+</section>
+
+
+<div class="navigation">
+
+<a class="nav-btn" href="lessons1.html">
+← قائمة الدروس
+</a>
+
+<a class="nav-btn next" href="lesson2.html">
+الدرس التالي →
+</a>
+
+</div>
+
+</main>
+</div>
+
+
+<footer>
+
+<strong>منصة مَدَار التعليمية</strong>
+
+<p>
+إعداد وتقديم: الأستاذ عمر أحمد
+</p>
+
+<p>
+تعلم • افهم • طبّق • تفوق
+</p>
+
+</footer>
+
+
+<script>
+
+function toggleAnswer(id){
+
+  const box=document.getElementById(id);
+
+  if(box.style.display==="block"){
+    box.style.display="none";
+  }else{
+    box.style.display="block";
+  }
+
+}
+
+
+function check(el,correct){
+
+  if(correct){
+    el.style.background="#dff7ef";
+    el.style.borderColor="#2aa88f";
+    el.innerHTML="✓ إجابة صحيحة";
+  }else{
+    el.style.background="#ffe8e8";
+    el.style.borderColor="#d95353";
+    el.innerHTML="✗ إجابة غير صحيحة";
+  }
+
+}
+
+
+let answers={};
+
+function answerQuiz(number,el,correct){
+
+  answers[number]=correct;
+
+  const parent=el.parentElement;
+
+  parent.querySelectorAll(".option").forEach(x=>{
+    x.style.background="";
+    x.style.borderColor="";
+  });
+
+  if(correct){
+    el.style.background="#2aa88f";
+  }else{
+    el.style.background="#b94a48";
+  }
+
+}
+
+
+function calculateScore(){
+
+  let score=0;
+
+  for(let i=1;i<=5;i++){
+    if(answers[i]===true){
+      score++;
     }
+  }
 
-  </script>
+  const result=document.getElementById("score");
 
+  result.style.display="block";
+
+  result.innerHTML=
+  "نتيجتك: <strong>"+score+" / 5</strong><br>"+
+  (score===5
+    ?"🌟 ممتاز جدًا! أنت متقن للدرس."
+    :score>=3
+    ?"👏 جيد جدًا، راجع النقاط التي أخطأت فيها."
+    :"📚 تحتاج إلى مراجعة الدرس مرة أخرى.");
+
+}
+
+</script>
 
 </body>
-
-</html>
+                                                </html>
